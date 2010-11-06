@@ -1,5 +1,29 @@
 <!DOCTYPE dataset SYSTEM "dataset.dtd">
 <dataset>
+	<table name="kategorie">
+		<column>ID</column>
+		<column>BEZEICHNUNG</column>
+		<column>PREISMIN</column>
+		<column>PREISMAX</column>
+		<column>PREISSTD</column>
+		<column>VERSION</column>
+		<row>
+			<value>1</value>
+			<value>Gehoben</value>
+			<value>100</value>
+			<value>200</value>
+			<value>150</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>Standard</value>
+			<value>50</value>
+			<value>150</value>
+			<value>100</value>
+			<value>0</value>
+		</row>
+	</table>
 	<table name="kuenstler">
 		<column>ID</column>
 		<column>NACHNAME</column>
@@ -130,6 +154,37 @@
 		</row>
 	</table>
 
+	<table name="reihe">
+		<column>ID</column>
+		<column>BEZEICHNUNG</column>
+		<column>ANZPLAETZE</column>
+		<column>SITZPLATZ</column>
+		<column>STARTPLATZ</column>
+		<column>VERSION</column>
+		<column>SAAL_ID</column>
+		<column>KATEGORIE_ID</column>
+		<row>
+			<value>1</value>
+			<value>Reihe 1</value>
+			<value>3</value>
+			<value>true</value>
+			<value>0</value>
+			<value>0</value>
+			<value>1</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>Reihe 2</value>
+			<value>3</value>
+			<value>true</value>
+			<value>0</value>
+			<value>0</value>
+			<value>1</value>
+			<value>1</value>
+		</row>
+	</table>
+
 	<table name="platz">
 		<column>ID</column>
 		<column>STATUS</column>
@@ -152,22 +207,52 @@
 		<row>
 			<value>2</value>
 			<value>1</value>
+			<value>1</value>
+			<value>0</value>
+			<value>1</value>
+			<value>1</value>
+			<value>1</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>1</value>
 			<value>2</value>
 			<value>0</value>
 			<value>1</value>
 			<value>1</value>
 			<value>1</value>
-			<value>1</value>
+			<value>2</value>
 		</row>
 		<row>
-			<value>3</value>
+			<value>4</value>
 			<value>1</value>
 			<value>3</value>
 			<value>0</value>
 			<value>1</value>
+			<value>2</value>
 			<value>1</value>
 			<value>1</value>
+		</row>
+		<row>
+			<value>5</value>
 			<value>1</value>
+			<value>1</value>
+			<value>0</value>
+			<value>1</value>
+			<value>2</value>
+			<value>1</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>6</value>
+			<value>1</value>
+			<value>2</value>
+			<value>0</value>
+			<value>1</value>
+			<value>2</value>
+			<value>1</value>
+			<value>2</value>
 		</row>
 	</table>
 </dataset>
