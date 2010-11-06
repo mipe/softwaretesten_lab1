@@ -1,9 +1,14 @@
 package at.ticketline.dao.jpa;
 
 import java.io.FileReader;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -12,11 +17,13 @@ import javax.persistence.EntityManager;
 
 import junit.framework.Assert;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.XmlDataSet;
 import org.dbunit.operation.DatabaseOperation;
+import org.hibernate.type.BigDecimalType;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,8 +46,7 @@ import at.ticketline.entity.Veranstaltung;
 public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	IDatabaseConnection dbUnitCon = null;
 	
-	@Autowired
-	private VeranstaltungDao veranstaltungDao;
+	
 	@Autowired
 	private AuffuehrungDao auffuehrungDao;
 	
@@ -62,7 +68,7 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	public void loadData(String datasetFileName) {
         try {
         	IDataSet dataSet = new XmlDataSet(new FileReader(datasetFileName)); 
-        	
+        	//DatabaseOperation.INSERT.execute(dbUnitCon, dataSet);
         	DatabaseOperation.CLEAN_INSERT.execute(dbUnitCon, dataSet);
         	DatabaseOperation.REFRESH.execute(dbUnitCon, dataSet);
         } catch (Exception e) {
@@ -70,21 +76,116 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
         }
 	}
 	
+	/*
+	 * 0626629
+	 * Dominik Hofer
+	 */
 	@Test
 	@Transactional
-	public void simpleTest() {
-		loadData("dataset.xml");
+	public void findBest2Best() {
+		loadData("dh_findBest2Best1RowTest.xml");
 		
-		Assert.assertEquals(4, 2 + 2);
-		Assert.assertNotNull(this.veranstaltungDao);
-		Assert.assertEquals(this.countRowsInTable("veranstaltung"), 3);
+		int[] ids = new int[] {1,2}; 
 		
-		Assert.assertEquals(this.veranstaltungDao.findAll().size(), 3);
-		
-		//List<Platz> bestplatz = this.auffuehrungDao.findBest(1);
-		
+		List<Platz> result = auffuehrungDao.findBest(1);
+
+		Assert.assertTrue(resultContainsExactly(result, ids));
 	}
 	
+	/*
+	 * 0626629
+	 * Dominik Hofer
+	 */
+	@Test
+	@Transactional
+	public void findBest1BestCount() {
+		loadData("dh_findBest2Best1RowTest.xml");
+
+		int[] ids1 = new int[] {1,2};
+		int[] ids2 = new int[] {2,3};
+		
+		List<Platz> result = auffuehrungDao.findBest(1,2);
+
+		Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
+	}
+
+	/*
+	 * 0626629
+	 * Dominik Hofer
+	 */
+	@Test
+	@Transactional
+	public void findBest1CountMaxPriceBest() {
+		loadData("dh_findBest2Best1RowTest.xml");
+		
+		int[] ids1 = new int[] {1,2};
+		int[] ids2 = new int[] {2,3};
+		
+		List<Platz> result = auffuehrungDao.findBest(1,2,new BigDecimal(150));
+
+		Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
+	}
+	
+	/*
+	 * 0626629
+	 * Dominik Hofer
+	 */
+	@Test
+	@Transactional
+	public void findCheapest2Cheapest() {
+		loadData("dh_findBest2Best1RowTest.xml");
+		
+		int[] ids1 = new int[] {4,5,6};
+		
+		List<Platz> result = auffuehrungDao.findCheapest(1);
+		System.out.println(result);
+		Assert.assertTrue(resultContainsExactly(result, ids1));
+	}
+
+	/*
+	 * 0626629
+	 * Dominik Hofer
+	 */
+	@Test
+	@Transactional
+	public void findCheapest2CheapestCount() {
+		loadData("dh_findBest2Best1RowTest.xml");
+		
+		int[] ids1 = new int[] {4,5};
+		int[] ids2 = new int[] {5,6};
+		
+		List<Platz> result = auffuehrungDao.findCheapest(1,2);
+		System.out.println(result);
+		Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
+	}
+	
+	private boolean resultContainsExactly(List<Platz> list, int[] ids) {
+		if (list.size() != ids.length) return false;
+		
+		ids : for (Integer id : ids) {
+			boolean contains = false;
+			for (Platz p : list)
+				if (p.getId().equals(id)) {
+					contains = true;
+					continue ids;
+				}
+			if (!contains) return false;
+		}
+		
+		return true;
+	}
+	
+	private boolean resultContainsOneOf(List<Platz> list, int[] ids) {
+		ids : for (Integer id : ids) {
+			for (Platz p : list)
+				if (p.getId().equals(id)) {
+					return true;
+				}
+		}
+		
+		return false;
+	}
+
 	@After
 	public void teardown() {
 		try {
@@ -93,4 +194,5 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 			e.printStackTrace();
 		}
 	}
+	
 }
