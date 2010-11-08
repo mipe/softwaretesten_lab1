@@ -154,6 +154,41 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 		Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
 	}
 	
+	/*
+	 * 0726284
+	 * Richard Holzeis
+	*/
+	@Test
+    @Transactional
+    public void findBest1Test() {
+        
+        this.loadData("rh_dataset.xml");
+        
+        int expectedId = 1;
+        List<Platz> list = auffuehrungDao.findBest(1);
+        
+        Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
+    }
+
+    /*
+     * 0726284
+     * Richard Holzeis
+    */
+    @Test
+    @Transactional
+    public void findBest1CountTest() {
+        
+        this.loadData("rh_dataset.xml");
+        
+        int expectedId = 1;
+        int count = 1;
+        
+        List<Platz> list = auffuehrungDao.findBest(2,count);
+        
+        Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
+        Assert.assertEquals(list.size(), count);
+    }
+	
 	private boolean resultContainsExactly(List<Platz> list, int[] ids) {
 		if (list.size() != ids.length) return false;
 		
