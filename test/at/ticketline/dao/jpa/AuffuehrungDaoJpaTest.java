@@ -1,6 +1,9 @@
 package at.ticketline.dao.jpa;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -45,6 +48,8 @@ import at.ticketline.entity.Veranstaltung;
 
 public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	IDatabaseConnection dbUnitCon = null;
+	
+
 	
 	
 	@Autowired
@@ -187,7 +192,7 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
         
         Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
         Assert.assertEquals(list.size(), count);
-    }
+    }    
 	
 	private boolean resultContainsExactly(List<Platz> list, int[] ids) {
 		if (list.size() != ids.length) return false;
@@ -214,6 +219,43 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 		}
 		
 		return false;
+	}
+	
+	private List<Data> loadTestfile(String testfile) {
+	    List<Data> data = new ArrayList<Data>();
+	    try {
+            BufferedReader reader = new BufferedReader(new FileReader(testfile));
+            String input = "";
+            while ((input = reader.readLine()) != null && !input.equals("") ) {
+                String[] split = input.split(":");
+                List<Integer> inputList = new ArrayList<Integer>();
+                List<List<Integer>> outputList = new ArrayList<List<Integer>>();
+                
+                //[0]: input
+                String[] eingabe = split[0].split(",");
+                for (String in:eingabe) {
+                    inputList.add(new Integer(in));
+                }
+                
+                //[>0]: output
+                for (int i=1; i<split.length; i++) {
+                    String[] ausgabe = split[i].split(",");
+                    List<Integer> list = new ArrayList<Integer>();
+                    for (String out:ausgabe) {
+                        list.add(new Integer(out));
+                    }
+                    outputList.add(list);
+                }
+                
+                data.add(new Data(inputList,outputList));
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.err.println(e.getMessage());
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+	    return data;
 	}
 
 	@After
