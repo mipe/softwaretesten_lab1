@@ -86,14 +86,20 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	 * Dominik Hofer
 	 */
 	@Test
-	public void findBest2Best() {
+	public void dhFindBest2Best() {
 		loadData("dh_findBest2Best1RowTest.xml");
 		
-		int[] ids = new int[] {1,2}; 
+		List<Data> data = loadTestfile("dhFindBest2.tst");
+		
+		
+		
+//		int[] ids = new int[] {1,2};
+		
+		Data inputData = data.get(0);
 		
 		List<Platz> result = auffuehrungDao.findBest(1);
 
-		Assert.assertTrue(resultContainsOneOf(result, ids));
+		Assert.assertTrue(resultContainsOneOf(result, ));
 	}
 	
 	/*
@@ -101,7 +107,7 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	 * Dominik Hofer
 	 */
 	@Test
-	public void findBest1BestCount() {
+	public void dh_findBest1BestCount() {
 		loadData("dh_findBest2Best1RowTest.xml");
 
 		int[] ids1 = new int[] {1,2};
@@ -194,8 +200,8 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
         Assert.assertEquals(list.size(), count);
     }    
 	
-	private boolean resultContainsExactly(List<Platz> list, int[] ids) {
-		if (list.size() != ids.length) return false;
+	private boolean resultContainsExactly(List<Platz> list, List<Integer> ids) {
+		if (list.size() != ids.size()) return false;
 		
 		ids : for (Integer id : ids) {
 			boolean contains = false;
@@ -210,7 +216,7 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 		return true;
 	}
 	
-	private boolean resultContainsOneOf(List<Platz> list, int[] ids) {
+	private boolean resultContainsOneOf(List<Platz> list, List<Integer> ids) {
 		for (Integer id : ids) {
 			for (Platz p : list)
 				if (p.getId().equals(id)) {
