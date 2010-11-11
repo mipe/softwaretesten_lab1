@@ -49,9 +49,6 @@ import at.ticketline.entity.Veranstaltung;
 public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	IDatabaseConnection dbUnitCon = null;
 	
-
-	
-	
 	@Autowired
 	private AuffuehrungDao auffuehrungDao;
 	
@@ -184,14 +181,16 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
     public void findBest1CountTest() {
         
         this.loadData("rh_dataset.xml");
-        
-        int expectedId = 1;
+        List<Data> dataList = this.loadTestfile("rh_testdata");
         int count = 1;
         
-        List<Platz> list = auffuehrungDao.findBest(2,count);
+        for (Data data:dataList) {
+            List<Platz> list = auffuehrungDao.findBest(data.getInput().get(0), count);
+            Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
+            Assert.assertEquals(list.size(), count);
+        }
         
-        Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
-        Assert.assertEquals(list.size(), count);
+        
     }    
 	
 	private boolean resultContainsExactly(List<Platz> list, int[] ids) {
