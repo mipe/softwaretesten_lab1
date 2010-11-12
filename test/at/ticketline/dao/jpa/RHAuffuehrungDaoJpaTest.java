@@ -46,10 +46,8 @@ public class RHAuffuehrungDaoJpaTest extends AbstractDaoTest  {
         int count = 1;
 
         for (Data data : dataList) {
-            for (Integer in:data.getInput()) {
-                List<Platz> list = auffuehrungDao.findBest(in, count);
-                Assert.assertTrue(resultIsOneOf(list, data.getOutput()));
-            }
+            List<Platz> list = auffuehrungDao.findBest(data.getInput().get(0), count);
+            Assert.assertTrue(resultIsOneOf(list, data.getOutput()));
         }
     }
 
@@ -68,6 +66,39 @@ public class RHAuffuehrungDaoJpaTest extends AbstractDaoTest  {
             List<Platz> list = auffuehrungDao.findBest(data.getInput().get(0), count, new BigDecimal(data.getInput().get(1)));
             Assert.assertTrue(resultIsOneOf(list, data.getOutput()));
             Assert.assertEquals(list.size(), count);
+        }
+    }
+    
+    /*
+     * 0726284 Richard Holzeis
+     */
+    @Test
+    @Transactional
+    public void rh_findCheapest1() {
+
+        this.loadData("rh_dataset.xml");
+        List<Data> dataList = this.loadTestfile("rh_findCheapest1");
+
+        for (Data data : dataList) {
+            List<Platz> list = auffuehrungDao.findCheapest((data.getInput().get(0)));
+            Assert.assertTrue(resultIsOneOf(list, data.getOutput()));
+        }
+    }
+    
+    /*
+     * 0726284 Richard Holzeis
+     */
+    @Test
+    @Transactional
+    public void rh_findCheapest1CountTest() {
+
+        this.loadData("rh_dataset.xml");
+        List<Data> dataList = this.loadTestfile("rh_findCheapest1CountMaxPriceBest");
+        int count = 1;
+
+        for (Data data : dataList) {
+            List<Platz> list = auffuehrungDao.findCheapest(data.getInput().get(0), count);
+            Assert.assertTrue(resultIsOneOf(list, data.getOutput()));
         }
     }
     
