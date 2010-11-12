@@ -49,9 +49,6 @@ import at.ticketline.entity.Veranstaltung;
 public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	IDatabaseConnection dbUnitCon = null;
 	
-
-	
-	
 	@Autowired
 	private AuffuehrungDao auffuehrungDao;
 	
@@ -171,14 +168,17 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	*/
 	@Test
     @Transactional
-    public void findBest1Test() {
+    public void rh_findBest1Test() {
         
         this.loadData("rh_dataset.xml");
+        List<Data> dataList = this.loadTestfile("rh_testdata");
         
-        int expectedId = 1;
         List<Platz> list = auffuehrungDao.findBest(1);
         
-        //Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
+        for (Data data : dataList) {
+            Assert.assertTrue(resultIsOneOf(list, data.getOutput()));
+        }
+        
     }
 
     /*
@@ -187,17 +187,36 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
     */
     @Test
     @Transactional
-    public void findBest1CountTest() {
+    public void rh_findBest1CountTest() {
         
         this.loadData("rh_dataset.xml");
-        
-        int expectedId = 1;
+        List<Data> dataList = this.loadTestfile("rh_testdata");
         int count = 1;
         
-        List<Platz> list = auffuehrungDao.findBest(2,count);
+        for (Data data:dataList) {
+            List<Platz> list = auffuehrungDao.findBest(data.getInput().get(0), count);
+            Assert.assertTrue(resultIsOneOf(list, data.getOutput()));
+            Assert.assertEquals(list.size(), count);
+        }
+    }
+    
+    /*
+     * 0726284
+     * Richard Holzeis
+    */
+    @Test
+    @Transactional
+    public void rh_findBest1CountMaxPriceBest() {
         
-//        Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
-//        Assert.assertEquals(list.size(), count);
+        this.loadData("rh_dataset.xml");
+        List<Data> dataList = this.loadTestfile("rh_testdata");
+        int count = 1;
+        
+        for (Data data:dataList) {
+            List<Platz> list = auffuehrungDao.findBest(data.getInput().get(0), count, new BigDecimal(40));
+            Assert.assertTrue(resultIsOneOf(list, data.getOutput()));
+            Assert.assertEquals(list.size(), count);
+        }
     }    
 	
 	private boolean resultIsOneOf(List<Platz> result, List<List<Integer>> expected) {
