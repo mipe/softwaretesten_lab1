@@ -37,7 +37,7 @@ public class AuffuehrungDaoJpa extends GenericDaoJpa<Auffuehrung, Integer>
 		for (Platz p : this.findById(id).getPlaetze()) {
 			/*
 			 * Durchwandere bestList von hinten nach vorne und bestimme die
-			 * Position, an der p eingefügt werden soll
+			 * Position, an der p eingefï¿½gt werden soll
 			 */
 			int i = bestList.size() - 1;
 			while ((i >= 0) && p.better(bestList.get(i))) {
@@ -69,7 +69,7 @@ public class AuffuehrungDaoJpa extends GenericDaoJpa<Auffuehrung, Integer>
 		for (Platz p : filterList) {
 			/*
 			 * Durchwandere bestList von hinten nach vorne und bestimme die
-			 * Position, an der p eingefügt werden soll
+			 * Position, an der p eingefï¿½gt werden soll
 			 */
 			int i = bestList.size() - 1;
 			while ((i >= 0) && p.better(bestList.get(i))) {
@@ -106,7 +106,7 @@ public class AuffuehrungDaoJpa extends GenericDaoJpa<Auffuehrung, Integer>
 		for (Platz p : this.findById(id).getPlaetze()) {
 			/*
 			 * Durchwandere bestList von hinten nach vorne und bestimme die
-			 * Position, an der p eingefügt werden soll
+			 * Position, an der p eingefï¿½gt werden soll
 			 */
 			int i = cheapestList.size() - 1;
 			while ((i >= 0) && p.cheaper(cheapestList.get(i))) {
