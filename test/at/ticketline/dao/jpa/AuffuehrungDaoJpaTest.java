@@ -86,20 +86,18 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	 * Dominik Hofer
 	 */
 	@Test
-	public void dhFindBest2Best() {
-		loadData("dh_findBest2Best1RowTest.xml");
+	public void dhFindBest() {
+		loadData("dh_dataset.xml");
 		
-		List<Data> data = loadTestfile("dhFindBest2.tst");
-		
-		
+		List<Data> data = loadTestfile("dh_findBest");
 		
 //		int[] ids = new int[] {1,2};
 		
-		Data inputData = data.get(0);
-		
-		List<Platz> result = auffuehrungDao.findBest(1);
-
-		Assert.assertTrue(resultContainsOneOf(result, ));
+		for (Data d : data) {
+			List<List<Integer>> expected = d.getOutput();
+			List<Platz> result = auffuehrungDao.findBest(d.getInput().get(0));
+			Assert.assertTrue(resultIsOneOf(result, expected));
+		}
 	}
 	
 	/*
@@ -108,14 +106,14 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	 */
 	@Test
 	public void dh_findBest1BestCount() {
-		loadData("dh_findBest2Best1RowTest.xml");
+		loadData("dh_dataset.xml");
 
 		int[] ids1 = new int[] {1,2};
 		int[] ids2 = new int[] {2,3};
 		
 		List<Platz> result = auffuehrungDao.findBest(1,2);
 
-		Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
+		//Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
 	}
 
 	/*
@@ -124,14 +122,14 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	 */
 	@Test
 	public void findBest1CountMaxPriceBest() {
-		loadData("dh_findBest2Best1RowTest.xml");
+		loadData("dh_dataset.xml");
 		
 		int[] ids1 = new int[] {1,2};
 		int[] ids2 = new int[] {2,3};
 		
 		List<Platz> result = auffuehrungDao.findBest(1,2,new BigDecimal(150));
 
-		Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
+		//Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
 	}
 	
 	/*
@@ -140,13 +138,13 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	 */
 	@Test
 	public void findCheapest2Cheapest() {
-		loadData("dh_findBest2Best1RowTest.xml");
+		loadData("dh_dataset.xml");
 		
 		int[] ids1 = new int[] {4,5,6};
 		
 		List<Platz> result = auffuehrungDao.findCheapest(1);
 
-		Assert.assertTrue(resultContainsExactly(result, ids1));
+		//Assert.assertTrue(resultContainsExactly(result, ids1));
 	}
 
 	/*
@@ -155,14 +153,16 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	 */
 	@Test
 	public void findCheapest2CheapestCount() {
-		loadData("dh_findBest2Best1RowTest.xml");
+		loadData("dh_dataset.xml");
 		
 		int[] ids1 = new int[] {4,5};
 		int[] ids2 = new int[] {5,6};
 		
 		List<Platz> result = auffuehrungDao.findCheapest(1,2);
 		System.out.println(result);
-		Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
+		
+		//for (data)
+		//Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
 	}
 	
 	/*
@@ -178,7 +178,7 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
         int expectedId = 1;
         List<Platz> list = auffuehrungDao.findBest(1);
         
-        Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
+        //Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
     }
 
     /*
@@ -196,24 +196,21 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
         
         List<Platz> list = auffuehrungDao.findBest(2,count);
         
-        Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
-        Assert.assertEquals(list.size(), count);
+//        Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
+//        Assert.assertEquals(list.size(), count);
     }    
 	
-	private boolean resultContainsExactly(List<Platz> list, List<Integer> ids) {
-		if (list.size() != ids.size()) return false;
-		
-		ids : for (Integer id : ids) {
-			boolean contains = false;
-			for (Platz p : list)
-				if (p.getId().equals(id)) {
-					contains = true;
-					continue ids;
-				}
-			if (!contains) return false;
+	private boolean resultIsOneOf(List<Platz> result, List<List<Integer>> expected) {
+		ex : for (List<Integer> ex : expected) {
+			if (result.size() != ex.size()) return false;
+			ids : for (Integer id : ex) {
+				for (Platz p : result)
+					if (p.getId().equals(id)) continue ids;
+				continue ex;
+			}	
+			return true;
 		}
-		
-		return true;
+		return false;
 	}
 	
 	private boolean resultContainsOneOf(List<Platz> list, List<Integer> ids) {
