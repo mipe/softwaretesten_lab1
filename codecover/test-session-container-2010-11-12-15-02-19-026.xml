@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1289570539015" TestSessionContainerId="b302ce6c-c1ef-4380-9f45-bd96ef74a84e" version="1.0">
+<SrcFileList>
+<SrcFile Content="package at.ticketline.dao.jpa;&#10;&#10;import java.math.BigDecimal;&#10;import java.util.ArrayList;&#10;import java.util.List;&#10;import at.ticketline.dao.GenericDaoJpa;&#10;import at.ticketline.dao.interfaces.AuffuehrungDao;&#10;import at.ticketline.entity.Auffuehrung;&#10;import at.ticketline.entity.Platz;&#10;import at.ticketline.entity.PlatzStatus;&#10;&#10;public class AuffuehrungDaoJpa extends GenericDaoJpa&lt;Auffuehrung, Integer&gt;&#10;&#9;&#9;implements AuffuehrungDao {&#10;&#10;&#10;&#9;@SuppressWarnings(&quot;unchecked&quot;)&#10;&#9;public List&lt;Object[]&gt; findByVeranstaltungId(Integer id) {&#10;&#9;&#9;return (List&lt;Object[]&gt;) this.entityManager.createNamedQuery(&quot;Auffuehrung.findByVeranstaltung&quot;).setParameter(&quot;id&quot;, id).getResultList();&#10;&#9;}&#10;&#10;&#9;public List&lt;Platz&gt; findBest(Integer id) {&#10;&#9;&#9;Platz best = null;&#10;&#9;&#9;List&lt;Platz&gt; bestList = new ArrayList&lt;Platz&gt;();&#10;&#10;&#9;&#9;for (Platz p : this.findById(id).getPlaetze()) {&#10;&#9;&#9;&#9;if (p.better(best))&#10;&#9;&#9;&#9;&#9;best = p;&#10;&#9;&#9;}&#10;&#10;&#9;&#9;bestList.add(best);&#10;&#9;&#9;return bestList;&#10;&#9;}&#10;&#10;&#9;public List&lt;Platz&gt; findBest(Integer id, Integer count) {&#10;&#9;&#9;List&lt;Platz&gt; bestList = new ArrayList&lt;Platz&gt;();&#10;&#10;&#9;&#9;for (Platz p : this.findById(id).getPlaetze()) {&#10;&#9;&#9;&#9;/*&#10;&#9;&#9;&#9; * Durchwandere bestList von hinten nach vorne und bestimme die&#10;&#9;&#9;&#9; * Position, an der p eingef�gt werden soll&#10;&#9;&#9;&#9; */&#10;&#9;&#9;&#9;int i = bestList.size() - 1;&#10;&#9;&#9;&#9;while ((i &gt;= 0) &amp;&amp; p.better(bestList.get(i))) {&#10;&#9;&#9;&#9;&#9;i--;&#10;&#9;&#9;&#9;}&#10;&#10;&#9;&#9;&#9;bestList.add(p);&#10;&#10;&#9;&#9;&#9;if (bestList.size() &gt; count) {&#10;&#9;&#9;&#9;&#9;bestList.remove(count);&#10;&#9;&#9;&#9;}&#10;&#9;&#9;}&#10;&#10;&#9;&#9;return bestList;&#10;&#9;}&#10;&#10;&#9;public List&lt;Platz&gt; findBest(Integer id, Integer count,&#10;&#9;&#9;&#9;BigDecimal maxEinzelPreis) {&#10;&#9;&#9;List&lt;Platz&gt; filterList = new ArrayList&lt;Platz&gt;();&#10;&#10;&#9;&#9;for (Platz p : this.findById(id).getPlaetze()) {&#10;&#9;&#9;&#9;if (p.getKategorie().getPreisstd().compareTo(maxEinzelPreis) &lt;= 0) {&#10;&#9;&#9;&#9;&#9;filterList.add(p);&#10;&#9;&#9;&#9;}&#10;&#9;&#9;}&#10;&#10;&#9;&#9;List&lt;Platz&gt; bestList = new ArrayList&lt;Platz&gt;();&#10;&#10;&#9;&#9;for (Platz p : filterList) {&#10;&#9;&#9;&#9;/*&#10;&#9;&#9;&#9; * Durchwandere bestList von hinten nach vorne und bestimme die&#10;&#9;&#9;&#9; * Position, an der p eingef�gt werden soll&#10;&#9;&#9;&#9; */&#10;&#9;&#9;&#9;int i = bestList.size() - 1;&#10;&#9;&#9;&#9;while ((i &gt;= 0) &amp;&amp; p.better(bestList.get(i))) {&#10;&#9;&#9;&#9;&#9;i--;&#10;&#9;&#9;&#9;}&#10;&#10;&#9;&#9;&#9;bestList.add(p);&#10;&#10;&#9;&#9;&#9;if (bestList.size() &gt; count) {&#10;&#9;&#9;&#9;&#9;bestList.remove(count);&#10;&#9;&#9;&#9;}&#10;&#9;&#9;}&#10;&#10;&#9;&#9;return bestList;&#10;&#9;}&#10;&#10;&#9;public List&lt;Platz&gt; findCheapest(Integer id) {&#10;&#9;&#9;Platz cheapest = null;&#10;&#9;&#9;List&lt;Platz&gt; cheapestList = new ArrayList&lt;Platz&gt;();&#10;&#10;&#9;&#9;for (Platz p : this.findById(id).getPlaetze()) {&#10;&#9;&#9;&#9;if (p.cheaper(cheapest))&#10;&#9;&#9;&#9;&#9;cheapest = p;&#10;&#9;&#9;}&#10;&#10;&#9;&#9;cheapestList.add(cheapest);&#10;&#9;&#9;return cheapestList;&#10;&#9;}&#10;&#10;&#9;@Override&#10;&#9;public List&lt;Platz&gt; findCheapest(Integer id, Integer count) {&#10;&#9;&#9;List&lt;Platz&gt; cheapestList = new ArrayList&lt;Platz&gt;();&#10;&#9;&#9;&#10;&#9;&#9;for (Platz p : this.findById(id).getPlaetze()) {&#10;&#9;&#9;&#9;/*&#10;&#9;&#9;&#9; * Durchwandere bestList von hinten nach vorne und bestimme die&#10;&#9;&#9;&#9; * Position, an der p eingef�gt werden soll&#10;&#9;&#9;&#9; */&#10;&#9;&#9;&#9;int i = cheapestList.size() - 1;&#10;&#9;&#9;&#9;while ((i &gt;= 0) &amp;&amp; p.cheaper(cheapestList.get(i))) {&#10;&#9;&#9;&#9;&#9;i--;&#10;&#9;&#9;&#9;}&#10;&#10;&#9;&#9;&#9;cheapestList.add(p);&#10;&#10;&#9;&#9;&#9;if (cheapestList.size() &gt; count) {&#10;&#9;&#9;&#9;&#9;cheapestList.remove(count);&#10;&#9;&#9;&#9;}&#10;&#9;&#9;}&#10;&#10;&#9;&#9;return cheapestList;&#10;&#9;}&#10;}&#10;" Filename="AuffuehrungDaoJpa.java" Intrnl_Id="1"/>
+</SrcFileList>
+<CritList>
+<CritListEntry Name="org.codecover.model.utils.criteria.LoopCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.BranchCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.ConditionCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.StatementCoverage" PluginName="org.codecover"/>
+</CritList>
+<BoolOpList>
+<BoolOp Arity="2" Intrnl_Id="2" Name="conditional and (&amp;&amp;)">
+<BoolAssgnmntBoolMapList>
+<MapEntry BoolAssgnmnt="10" Value="false"/>
+<MapEntry BoolAssgnmnt="02" Value="false"/>
+<MapEntry BoolAssgnmnt="11" Value="true"/>
+</BoolAssgnmntBoolMapList>
+</BoolOp>
+</BoolOpList>
+<HierarchyLvlTypeList>
+<HierarchyLvlType EnglishName="package" IntrnlName="package" Intrnl_Id="3"/>
+<HierarchyLvlType EnglishName="class" IntrnlName="class" Intrnl_Id="4"/>
+<HierarchyLvlType EnglishName="method" IntrnlName="method" Intrnl_Id="5"/>
+<HierarchyLvlType EnglishName="default package" IntrnlName="default package" Intrnl_Id="6"/>
+</HierarchyLvlTypeList>
+<MASTRoot>
+<HierarchyLvl HierarchyLvlId="99" HierarchyLvlTypeId="6" Intrnl_Id="7" Name="default package">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="98" HierarchyLvlTypeId="3" Intrnl_Id="8" Name="at">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="97" HierarchyLvlTypeId="3" Intrnl_Id="9" Name="ticketline">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="96" HierarchyLvlTypeId="3" Intrnl_Id="10" Name="dao">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="95" HierarchyLvlTypeId="3" Intrnl_Id="11" Name="jpa">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="94" HierarchyLvlTypeId="4" Intrnl_Id="12" Name="AuffuehrungDaoJpa">
+<Header>
+<Loc EndOffset="424" SrcFileId="1" StartOffset="322"/>
+</Header>
+<LocList>
+<Loc EndOffset="2962" SrcFileId="1" StartOffset="322"/>
+</LocList>
+<HierarchyLvl HierarchyLvlId="88" HierarchyLvlTypeId="5" Intrnl_Id="13" Name="findByVeranstaltungId">
+<Header>
+<Loc EndOffset="517" SrcFileId="1" StartOffset="430"/>
+</Header>
+<LocList>
+<Loc EndOffset="659" SrcFileId="1" StartOffset="430"/>
+</LocList>
+<StmntSeq Intrnl_Id="14">
+<LocList>
+<Loc EndOffset="656" SrcFileId="1" StartOffset="522"/>
+</LocList>
+<BasicStmnt CovItemId="S1" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="15">
+<LocList>
+<Loc EndOffset="656" SrcFileId="1" StartOffset="522"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="89" HierarchyLvlTypeId="5" Intrnl_Id="16" Name="findBest">
+<Header>
+<Loc EndOffset="701" SrcFileId="1" StartOffset="662"/>
+</Header>
+<LocList>
+<Loc EndOffset="911" SrcFileId="1" StartOffset="662"/>
+</LocList>
+<StmntSeq Intrnl_Id="17">
+<LocList>
+<Loc EndOffset="724" SrcFileId="1" StartOffset="706"/>
+<Loc EndOffset="773" SrcFileId="1" StartOffset="727"/>
+<Loc EndOffset="866" SrcFileId="1" StartOffset="777"/>
+<Loc EndOffset="889" SrcFileId="1" StartOffset="870"/>
+<Loc EndOffset="908" SrcFileId="1" StartOffset="892"/>
+</LocList>
+<BasicStmnt CovItemId="S2" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="18">
+<LocList>
+<Loc EndOffset="724" SrcFileId="1" StartOffset="706"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S3" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="19">
+<LocList>
+<Loc EndOffset="773" SrcFileId="1" StartOffset="727"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S4" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="20" MltplExecId="L1-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" NvrExecId="L1-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OnceExecutedId="L1-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="21">
+<LocList>
+<Loc EndOffset="862" SrcFileId="1" StartOffset="829"/>
+</LocList>
+<CondStmnt CovItemId="S5" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="22">
+<Branch CovItemId="B1" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Implct="false" Intrnl_Id="23">
+<Cond/>
+<LocList>
+<Loc EndOffset="862" SrcFileId="1" StartOffset="853"/>
+</LocList>
+<StmntSeq Intrnl_Id="24">
+<LocList>
+<Loc EndOffset="862" SrcFileId="1" StartOffset="853"/>
+</LocList>
+<BasicStmnt CovItemId="S6" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="25">
+<LocList>
+<Loc EndOffset="862" SrcFileId="1" StartOffset="853"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B2" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Implct="true" Intrnl_Id="26">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="27">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="831" SrcFileId="1" StartOffset="829"/>
+<LocList>
+<Loc EndOffset="862" SrcFileId="1" StartOffset="829"/>
+</LocList>
+<RootTerm CovItemId="C1" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="28">
+<BasicBoolTerm Intrnl_Id="29">
+<LocList>
+<Loc EndOffset="847" SrcFileId="1" StartOffset="833"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="780" SrcFileId="1" StartOffset="777"/>
+<LocList>
+<Loc EndOffset="866" SrcFileId="1" StartOffset="777"/>
+</LocList>
+</LoopStmnt>
+<BasicStmnt CovItemId="S7" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="30">
+<LocList>
+<Loc EndOffset="889" SrcFileId="1" StartOffset="870"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S8" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="31">
+<LocList>
+<Loc EndOffset="908" SrcFileId="1" StartOffset="892"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="90" HierarchyLvlTypeId="5" Intrnl_Id="32" Name="findBest">
+<Header>
+<Loc EndOffset="968" SrcFileId="1" StartOffset="914"/>
+</Header>
+<LocList>
+<Loc EndOffset="1411" SrcFileId="1" StartOffset="914"/>
+</LocList>
+<StmntSeq Intrnl_Id="33">
+<LocList>
+<Loc EndOffset="1019" SrcFileId="1" StartOffset="973"/>
+<Loc EndOffset="1388" SrcFileId="1" StartOffset="1023"/>
+<Loc EndOffset="1408" SrcFileId="1" StartOffset="1392"/>
+</LocList>
+<BasicStmnt CovItemId="S9" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="34">
+<LocList>
+<Loc EndOffset="1019" SrcFileId="1" StartOffset="973"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S10" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="35" MltplExecId="L2-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" NvrExecId="L2-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OnceExecutedId="L2-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="36">
+<LocList>
+<Loc EndOffset="1230" SrcFileId="1" StartOffset="1202"/>
+<Loc EndOffset="1295" SrcFileId="1" StartOffset="1234"/>
+<Loc EndOffset="1316" SrcFileId="1" StartOffset="1300"/>
+<Loc EndOffset="1384" SrcFileId="1" StartOffset="1321"/>
+</LocList>
+<BasicStmnt CovItemId="S11" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="37">
+<LocList>
+<Loc EndOffset="1230" SrcFileId="1" StartOffset="1202"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S12" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="38" MltplExecId="L3-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" NvrExecId="L3-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OnceExecutedId="L3-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="39">
+<LocList>
+<Loc EndOffset="1290" SrcFileId="1" StartOffset="1286"/>
+</LocList>
+<BasicStmnt CovItemId="S13" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="40">
+<LocList>
+<Loc EndOffset="1290" SrcFileId="1" StartOffset="1286"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<Keyword EndOffset="1239" SrcFileId="1" StartOffset="1234"/>
+<LocList>
+<Loc EndOffset="1295" SrcFileId="1" StartOffset="1234"/>
+</LocList>
+<RootTerm CovItemId="C2" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="41">
+<OpTerm BooleanOpId="2" Intrnl_Id="42">
+<BasicBoolTerm Intrnl_Id="43">
+<LocList>
+<Loc EndOffset="1248" SrcFileId="1" StartOffset="1242"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="44">
+<LocList>
+<Loc EndOffset="1278" SrcFileId="1" StartOffset="1253"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="1252" SrcFileId="1" StartOffset="1250"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</LoopStmnt>
+<BasicStmnt CovItemId="S14" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="45">
+<LocList>
+<Loc EndOffset="1316" SrcFileId="1" StartOffset="1300"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S15" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="46">
+<Branch CovItemId="B3" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Implct="false" Intrnl_Id="47">
+<Cond/>
+<LocList>
+<Loc EndOffset="1384" SrcFileId="1" StartOffset="1350"/>
+</LocList>
+<StmntSeq Intrnl_Id="48">
+<LocList>
+<Loc EndOffset="1379" SrcFileId="1" StartOffset="1356"/>
+</LocList>
+<BasicStmnt CovItemId="S16" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="49">
+<LocList>
+<Loc EndOffset="1379" SrcFileId="1" StartOffset="1356"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B4" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Implct="true" Intrnl_Id="50">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="51">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1323" SrcFileId="1" StartOffset="1321"/>
+<LocList>
+<Loc EndOffset="1384" SrcFileId="1" StartOffset="1321"/>
+</LocList>
+<RootTerm CovItemId="C3" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="52">
+<BasicBoolTerm Intrnl_Id="53">
+<LocList>
+<Loc EndOffset="1348" SrcFileId="1" StartOffset="1325"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="1026" SrcFileId="1" StartOffset="1023"/>
+<LocList>
+<Loc EndOffset="1388" SrcFileId="1" StartOffset="1023"/>
+</LocList>
+</LoopStmnt>
+<BasicStmnt CovItemId="S17" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="54">
+<LocList>
+<Loc EndOffset="1408" SrcFileId="1" StartOffset="1392"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="91" HierarchyLvlTypeId="5" Intrnl_Id="55" Name="findBest">
+<Header>
+<Loc EndOffset="1498" SrcFileId="1" StartOffset="1414"/>
+</Header>
+<LocList>
+<Loc EndOffset="2129" SrcFileId="1" StartOffset="1414"/>
+</LocList>
+<StmntSeq Intrnl_Id="56">
+<LocList>
+<Loc EndOffset="1551" SrcFileId="1" StartOffset="1503"/>
+<Loc EndOffset="1707" SrcFileId="1" StartOffset="1555"/>
+<Loc EndOffset="1757" SrcFileId="1" StartOffset="1711"/>
+<Loc EndOffset="2106" SrcFileId="1" StartOffset="1761"/>
+<Loc EndOffset="2126" SrcFileId="1" StartOffset="2110"/>
+</LocList>
+<BasicStmnt CovItemId="S18" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="57">
+<LocList>
+<Loc EndOffset="1551" SrcFileId="1" StartOffset="1503"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S19" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="58" MltplExecId="L4-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" NvrExecId="L4-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OnceExecutedId="L4-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="59">
+<LocList>
+<Loc EndOffset="1703" SrcFileId="1" StartOffset="1607"/>
+</LocList>
+<CondStmnt CovItemId="S20" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="60">
+<Branch CovItemId="B5" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Implct="false" Intrnl_Id="61">
+<Cond/>
+<LocList>
+<Loc EndOffset="1703" SrcFileId="1" StartOffset="1674"/>
+</LocList>
+<StmntSeq Intrnl_Id="62">
+<LocList>
+<Loc EndOffset="1698" SrcFileId="1" StartOffset="1680"/>
+</LocList>
+<BasicStmnt CovItemId="S21" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="63">
+<LocList>
+<Loc EndOffset="1698" SrcFileId="1" StartOffset="1680"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B6" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Implct="true" Intrnl_Id="64">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="65">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1609" SrcFileId="1" StartOffset="1607"/>
+<LocList>
+<Loc EndOffset="1703" SrcFileId="1" StartOffset="1607"/>
+</LocList>
+<RootTerm CovItemId="C4" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="66">
+<BasicBoolTerm Intrnl_Id="67">
+<LocList>
+<Loc EndOffset="1672" SrcFileId="1" StartOffset="1611"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="1558" SrcFileId="1" StartOffset="1555"/>
+<LocList>
+<Loc EndOffset="1707" SrcFileId="1" StartOffset="1555"/>
+</LocList>
+</LoopStmnt>
+<BasicStmnt CovItemId="S22" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="68">
+<LocList>
+<Loc EndOffset="1757" SrcFileId="1" StartOffset="1711"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S23" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="69" MltplExecId="L5-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" NvrExecId="L5-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OnceExecutedId="L5-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="70">
+<LocList>
+<Loc EndOffset="1948" SrcFileId="1" StartOffset="1920"/>
+<Loc EndOffset="2013" SrcFileId="1" StartOffset="1952"/>
+<Loc EndOffset="2034" SrcFileId="1" StartOffset="2018"/>
+<Loc EndOffset="2102" SrcFileId="1" StartOffset="2039"/>
+</LocList>
+<BasicStmnt CovItemId="S24" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="71">
+<LocList>
+<Loc EndOffset="1948" SrcFileId="1" StartOffset="1920"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S25" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="72" MltplExecId="L6-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" NvrExecId="L6-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OnceExecutedId="L6-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="73">
+<LocList>
+<Loc EndOffset="2008" SrcFileId="1" StartOffset="2004"/>
+</LocList>
+<BasicStmnt CovItemId="S26" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="74">
+<LocList>
+<Loc EndOffset="2008" SrcFileId="1" StartOffset="2004"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<Keyword EndOffset="1957" SrcFileId="1" StartOffset="1952"/>
+<LocList>
+<Loc EndOffset="2013" SrcFileId="1" StartOffset="1952"/>
+</LocList>
+<RootTerm CovItemId="C5" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="75">
+<OpTerm BooleanOpId="2" Intrnl_Id="76">
+<BasicBoolTerm Intrnl_Id="77">
+<LocList>
+<Loc EndOffset="1966" SrcFileId="1" StartOffset="1960"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="78">
+<LocList>
+<Loc EndOffset="1996" SrcFileId="1" StartOffset="1971"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="1970" SrcFileId="1" StartOffset="1968"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</LoopStmnt>
+<BasicStmnt CovItemId="S27" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="79">
+<LocList>
+<Loc EndOffset="2034" SrcFileId="1" StartOffset="2018"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S28" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="80">
+<Branch CovItemId="B7" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Implct="false" Intrnl_Id="81">
+<Cond/>
+<LocList>
+<Loc EndOffset="2102" SrcFileId="1" StartOffset="2068"/>
+</LocList>
+<StmntSeq Intrnl_Id="82">
+<LocList>
+<Loc EndOffset="2097" SrcFileId="1" StartOffset="2074"/>
+</LocList>
+<BasicStmnt CovItemId="S29" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="83">
+<LocList>
+<Loc EndOffset="2097" SrcFileId="1" StartOffset="2074"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B8" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Implct="true" Intrnl_Id="84">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="85">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2041" SrcFileId="1" StartOffset="2039"/>
+<LocList>
+<Loc EndOffset="2102" SrcFileId="1" StartOffset="2039"/>
+</LocList>
+<RootTerm CovItemId="C6" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="86">
+<BasicBoolTerm Intrnl_Id="87">
+<LocList>
+<Loc EndOffset="2066" SrcFileId="1" StartOffset="2043"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="1764" SrcFileId="1" StartOffset="1761"/>
+<LocList>
+<Loc EndOffset="2106" SrcFileId="1" StartOffset="1761"/>
+</LocList>
+</LoopStmnt>
+<BasicStmnt CovItemId="S30" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="88">
+<LocList>
+<Loc EndOffset="2126" SrcFileId="1" StartOffset="2110"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="92" HierarchyLvlTypeId="5" Intrnl_Id="89" Name="findCheapest">
+<Header>
+<Loc EndOffset="2175" SrcFileId="1" StartOffset="2132"/>
+</Header>
+<LocList>
+<Loc EndOffset="2414" SrcFileId="1" StartOffset="2132"/>
+</LocList>
+<StmntSeq Intrnl_Id="90">
+<LocList>
+<Loc EndOffset="2202" SrcFileId="1" StartOffset="2180"/>
+<Loc EndOffset="2255" SrcFileId="1" StartOffset="2205"/>
+<Loc EndOffset="2357" SrcFileId="1" StartOffset="2259"/>
+<Loc EndOffset="2388" SrcFileId="1" StartOffset="2361"/>
+<Loc EndOffset="2411" SrcFileId="1" StartOffset="2391"/>
+</LocList>
+<BasicStmnt CovItemId="S31" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="91">
+<LocList>
+<Loc EndOffset="2202" SrcFileId="1" StartOffset="2180"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S32" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="92">
+<LocList>
+<Loc EndOffset="2255" SrcFileId="1" StartOffset="2205"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S33" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="93" MltplExecId="L7-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" NvrExecId="L7-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OnceExecutedId="L7-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="94">
+<LocList>
+<Loc EndOffset="2353" SrcFileId="1" StartOffset="2311"/>
+</LocList>
+<CondStmnt CovItemId="S34" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="95">
+<Branch CovItemId="B9" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Implct="false" Intrnl_Id="96">
+<Cond/>
+<LocList>
+<Loc EndOffset="2353" SrcFileId="1" StartOffset="2340"/>
+</LocList>
+<StmntSeq Intrnl_Id="97">
+<LocList>
+<Loc EndOffset="2353" SrcFileId="1" StartOffset="2340"/>
+</LocList>
+<BasicStmnt CovItemId="S35" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="98">
+<LocList>
+<Loc EndOffset="2353" SrcFileId="1" StartOffset="2340"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B10" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Implct="true" Intrnl_Id="99">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="100">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2313" SrcFileId="1" StartOffset="2311"/>
+<LocList>
+<Loc EndOffset="2353" SrcFileId="1" StartOffset="2311"/>
+</LocList>
+<RootTerm CovItemId="C7" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="101">
+<BasicBoolTerm Intrnl_Id="102">
+<LocList>
+<Loc EndOffset="2334" SrcFileId="1" StartOffset="2315"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="2262" SrcFileId="1" StartOffset="2259"/>
+<LocList>
+<Loc EndOffset="2357" SrcFileId="1" StartOffset="2259"/>
+</LocList>
+</LoopStmnt>
+<BasicStmnt CovItemId="S36" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="103">
+<LocList>
+<Loc EndOffset="2388" SrcFileId="1" StartOffset="2361"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S37" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="104">
+<LocList>
+<Loc EndOffset="2411" SrcFileId="1" StartOffset="2391"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="93" HierarchyLvlTypeId="5" Intrnl_Id="105" Name="findCheapest">
+<Header>
+<Loc EndOffset="2486" SrcFileId="1" StartOffset="2417"/>
+</Header>
+<LocList>
+<Loc EndOffset="2960" SrcFileId="1" StartOffset="2417"/>
+</LocList>
+<StmntSeq Intrnl_Id="106">
+<LocList>
+<Loc EndOffset="2541" SrcFileId="1" StartOffset="2491"/>
+<Loc EndOffset="2933" SrcFileId="1" StartOffset="2547"/>
+<Loc EndOffset="2957" SrcFileId="1" StartOffset="2937"/>
+</LocList>
+<BasicStmnt CovItemId="S38" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="107">
+<LocList>
+<Loc EndOffset="2541" SrcFileId="1" StartOffset="2491"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S39" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="108" MltplExecId="L8-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" NvrExecId="L8-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OnceExecutedId="L8-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="109">
+<LocList>
+<Loc EndOffset="2758" SrcFileId="1" StartOffset="2726"/>
+<Loc EndOffset="2828" SrcFileId="1" StartOffset="2762"/>
+<Loc EndOffset="2853" SrcFileId="1" StartOffset="2833"/>
+<Loc EndOffset="2929" SrcFileId="1" StartOffset="2858"/>
+</LocList>
+<BasicStmnt CovItemId="S40" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="110">
+<LocList>
+<Loc EndOffset="2758" SrcFileId="1" StartOffset="2726"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S41" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="111" MltplExecId="L9-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" NvrExecId="L9-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OnceExecutedId="L9-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="112">
+<LocList>
+<Loc EndOffset="2823" SrcFileId="1" StartOffset="2819"/>
+</LocList>
+<BasicStmnt CovItemId="S42" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="113">
+<LocList>
+<Loc EndOffset="2823" SrcFileId="1" StartOffset="2819"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<Keyword EndOffset="2767" SrcFileId="1" StartOffset="2762"/>
+<LocList>
+<Loc EndOffset="2828" SrcFileId="1" StartOffset="2762"/>
+</LocList>
+<RootTerm CovItemId="C8" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="114">
+<OpTerm BooleanOpId="2" Intrnl_Id="115">
+<BasicBoolTerm Intrnl_Id="116">
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2770"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="117">
+<LocList>
+<Loc EndOffset="2811" SrcFileId="1" StartOffset="2781"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2780" SrcFileId="1" StartOffset="2778"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</LoopStmnt>
+<BasicStmnt CovItemId="S43" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="118">
+<LocList>
+<Loc EndOffset="2853" SrcFileId="1" StartOffset="2833"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S44" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="119">
+<Branch CovItemId="B11" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Implct="false" Intrnl_Id="120">
+<Cond/>
+<LocList>
+<Loc EndOffset="2929" SrcFileId="1" StartOffset="2891"/>
+</LocList>
+<StmntSeq Intrnl_Id="121">
+<LocList>
+<Loc EndOffset="2924" SrcFileId="1" StartOffset="2897"/>
+</LocList>
+<BasicStmnt CovItemId="S45" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="122">
+<LocList>
+<Loc EndOffset="2924" SrcFileId="1" StartOffset="2897"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B12" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Implct="true" Intrnl_Id="123">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="124">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2860" SrcFileId="1" StartOffset="2858"/>
+<LocList>
+<Loc EndOffset="2929" SrcFileId="1" StartOffset="2858"/>
+</LocList>
+<RootTerm CovItemId="C9" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="125">
+<BasicBoolTerm Intrnl_Id="126">
+<LocList>
+<Loc EndOffset="2889" SrcFileId="1" StartOffset="2862"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="2550" SrcFileId="1" StartOffset="2547"/>
+<LocList>
+<Loc EndOffset="2933" SrcFileId="1" StartOffset="2547"/>
+</LocList>
+</LoopStmnt>
+<BasicStmnt CovItemId="S46" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java" Intrnl_Id="127">
+<LocList>
+<Loc EndOffset="2957" SrcFileId="1" StartOffset="2937"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</MASTRoot>
+</TestSessionContainer>

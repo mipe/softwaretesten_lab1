@@ -648,4 +648,572 @@
 </HierarchyLvl>
 </HierarchyLvl>
 </MASTRoot>
+<TestSession Comment="" Date="1289566280878" Name="Nov 12, 2010 1:51:20 PM">
+<TestCase Comment="" Date="1289566279979" Name="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest:dhFindBestSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B1" Value="2"/>
+<Cov CovItemId="B2" Value="4"/>
+<Cov CovItemId="L1-2" Value="1"/>
+<Cov CovItemId="S2" Value="1"/>
+<Cov CovItemId="S3" Value="1"/>
+<Cov CovItemId="S4" Value="1"/>
+<Cov CovItemId="S5" Value="6"/>
+<Cov CovItemId="S6" Value="2"/>
+<Cov CovItemId="S7" Value="1"/>
+<Cov CovItemId="S8" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="1" RootTermCovItemId="C1">
+<MapEntry BoolAssgnmnt="0" Value="4"/>
+<MapEntry BoolAssgnmnt="1" Value="2"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel29">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAUAAAAF"/>
+</MetaDataListEntry>
+</MetaDataList>
+</TestCase>
+<TestCase Comment="Failure&#10;junit.framework.AssertionFailedError: null&#10;&#9;at junit.framework.Assert.fail(Assert.java:47)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:20)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:27)&#10;&#9;at at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.dhFindBestCountSomeTest(AuffuehrungDaoJpaTest.java:54)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:597)&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)&#10;&#9;at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)&#10;&#9;at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:236)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:49)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1289566280331" Name="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest:dhFindBestCountSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B3" Value="4"/>
+<Cov CovItemId="B4" Value="2"/>
+<Cov CovItemId="L2-2" Value="1"/>
+<Cov CovItemId="L3-0" Value="5"/>
+<Cov CovItemId="L3-2" Value="1"/>
+<Cov CovItemId="S10" Value="1"/>
+<Cov CovItemId="S11" Value="6"/>
+<Cov CovItemId="S12" Value="6"/>
+<Cov CovItemId="S13" Value="4"/>
+<Cov CovItemId="S14" Value="6"/>
+<Cov CovItemId="S15" Value="6"/>
+<Cov CovItemId="S16" Value="4"/>
+<Cov CovItemId="S17" Value="1"/>
+<Cov CovItemId="S9" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="2" RootTermCovItemId="C2">
+<MapEntry BoolAssgnmnt="10" Value="4"/>
+<MapEntry BoolAssgnmnt="02" Value="2"/>
+<MapEntry BoolAssgnmnt="11" Value="4"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="1" RootTermCovItemId="C3">
+<MapEntry BoolAssgnmnt="0" Value="2"/>
+<MapEntry BoolAssgnmnt="1" Value="4"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel30">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAYAAAAG"/>
+</MetaDataListEntry>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel29">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAAAAAAF"/>
+</MetaDataListEntry>
+</MetaDataList>
+</TestCase>
+<TestCase Comment="Failure&#10;junit.framework.AssertionFailedError: null&#10;&#9;at junit.framework.Assert.fail(Assert.java:47)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:20)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:27)&#10;&#9;at at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.dhFindBestCountMaxPriceSomeTest(AuffuehrungDaoJpaTest.java:71)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:597)&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)&#10;&#9;at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)&#10;&#9;at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:236)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:49)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1289566280408" Name="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest:dhFindBestCountMaxPriceSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B5" Value="6"/>
+<Cov CovItemId="B7" Value="4"/>
+<Cov CovItemId="B8" Value="2"/>
+<Cov CovItemId="L4-2" Value="1"/>
+<Cov CovItemId="L5-2" Value="1"/>
+<Cov CovItemId="L6-0" Value="5"/>
+<Cov CovItemId="L6-2" Value="1"/>
+<Cov CovItemId="S18" Value="1"/>
+<Cov CovItemId="S19" Value="1"/>
+<Cov CovItemId="S20" Value="6"/>
+<Cov CovItemId="S21" Value="6"/>
+<Cov CovItemId="S22" Value="1"/>
+<Cov CovItemId="S23" Value="1"/>
+<Cov CovItemId="S24" Value="6"/>
+<Cov CovItemId="S25" Value="6"/>
+<Cov CovItemId="S26" Value="2"/>
+<Cov CovItemId="S27" Value="6"/>
+<Cov CovItemId="S28" Value="6"/>
+<Cov CovItemId="S29" Value="4"/>
+<Cov CovItemId="S30" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="1" RootTermCovItemId="C4">
+<MapEntry BoolAssgnmnt="1" Value="6"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="2" RootTermCovItemId="C5">
+<MapEntry BoolAssgnmnt="10" Value="4"/>
+<MapEntry BoolAssgnmnt="02" Value="2"/>
+<MapEntry BoolAssgnmnt="11" Value="2"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="1" RootTermCovItemId="C6">
+<MapEntry BoolAssgnmnt="0" Value="2"/>
+<MapEntry BoolAssgnmnt="1" Value="4"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel31">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAgAAAAI"/>
+</MetaDataListEntry>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel30">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAAAAAAG"/>
+</MetaDataListEntry>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel29">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAAAAAAF"/>
+</MetaDataListEntry>
+</MetaDataList>
+</TestCase>
+<TestCase Comment="" Date="1289566280497" Name="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest:findCheapestSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B10" Value="5"/>
+<Cov CovItemId="B9" Value="1"/>
+<Cov CovItemId="L7-2" Value="1"/>
+<Cov CovItemId="S31" Value="1"/>
+<Cov CovItemId="S32" Value="1"/>
+<Cov CovItemId="S33" Value="1"/>
+<Cov CovItemId="S34" Value="6"/>
+<Cov CovItemId="S35" Value="1"/>
+<Cov CovItemId="S36" Value="1"/>
+<Cov CovItemId="S37" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="1" RootTermCovItemId="C7">
+<MapEntry BoolAssgnmnt="0" Value="5"/>
+<MapEntry BoolAssgnmnt="1" Value="1"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel32">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAUAAAAF"/>
+</MetaDataListEntry>
+</MetaDataList>
+</TestCase>
+<TestCase Comment="Failure&#10;junit.framework.AssertionFailedError: null&#10;&#9;at junit.framework.Assert.fail(Assert.java:47)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:20)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:27)&#10;&#9;at at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.findCheapestCountSomeTest(AuffuehrungDaoJpaTest.java:103)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:597)&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)&#10;&#9;at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)&#10;&#9;at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:236)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:49)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1289566280564" Name="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest:findCheapestCountSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B3" Value="4"/>
+<Cov CovItemId="B4" Value="2"/>
+<Cov CovItemId="L2-2" Value="1"/>
+<Cov CovItemId="L3-0" Value="5"/>
+<Cov CovItemId="L3-2" Value="1"/>
+<Cov CovItemId="S10" Value="1"/>
+<Cov CovItemId="S11" Value="6"/>
+<Cov CovItemId="S12" Value="6"/>
+<Cov CovItemId="S13" Value="2"/>
+<Cov CovItemId="S14" Value="6"/>
+<Cov CovItemId="S15" Value="6"/>
+<Cov CovItemId="S16" Value="4"/>
+<Cov CovItemId="S17" Value="1"/>
+<Cov CovItemId="S9" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="2" RootTermCovItemId="C2">
+<MapEntry BoolAssgnmnt="10" Value="4"/>
+<MapEntry BoolAssgnmnt="02" Value="2"/>
+<MapEntry BoolAssgnmnt="11" Value="2"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="1" RootTermCovItemId="C3">
+<MapEntry BoolAssgnmnt="0" Value="2"/>
+<MapEntry BoolAssgnmnt="1" Value="4"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel30">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAYAAAAG"/>
+</MetaDataListEntry>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel29">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAAAAAAF"/>
+</MetaDataListEntry>
+</MetaDataList>
+</TestCase>
+<MetaDataList/>
+</TestSession>
+<TestSession Comment="" Date="1289569948104" Name="Nov 12, 2010 2:52:28 PM">
+<TestCase Comment="" Date="1289569947444" Name="at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest:dhFindBestSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B1" Value="2"/>
+<Cov CovItemId="B2" Value="4"/>
+<Cov CovItemId="L1-2" Value="1"/>
+<Cov CovItemId="S2" Value="1"/>
+<Cov CovItemId="S3" Value="1"/>
+<Cov CovItemId="S4" Value="1"/>
+<Cov CovItemId="S5" Value="6"/>
+<Cov CovItemId="S6" Value="2"/>
+<Cov CovItemId="S7" Value="1"/>
+<Cov CovItemId="S8" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="1" RootTermCovItemId="C1">
+<MapEntry BoolAssgnmnt="0" Value="4"/>
+<MapEntry BoolAssgnmnt="1" Value="2"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel29">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAUAAAAF"/>
+</MetaDataListEntry>
+</MetaDataList>
+</TestCase>
+<TestCase Comment="Failure&#10;junit.framework.AssertionFailedError: null&#10;&#9;at junit.framework.Assert.fail(Assert.java:47)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:20)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:27)&#10;&#9;at at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest.dhFindBestCountSomeTest(DHAuffuehrungDaoJpaTest.java:60)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:597)&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)&#10;&#9;at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)&#10;&#9;at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:236)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:49)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1289569947775" Name="at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest:dhFindBestCountSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B3" Value="4"/>
+<Cov CovItemId="B4" Value="2"/>
+<Cov CovItemId="L2-2" Value="1"/>
+<Cov CovItemId="L3-0" Value="5"/>
+<Cov CovItemId="L3-2" Value="1"/>
+<Cov CovItemId="S10" Value="1"/>
+<Cov CovItemId="S11" Value="6"/>
+<Cov CovItemId="S12" Value="6"/>
+<Cov CovItemId="S13" Value="5"/>
+<Cov CovItemId="S14" Value="6"/>
+<Cov CovItemId="S15" Value="6"/>
+<Cov CovItemId="S16" Value="4"/>
+<Cov CovItemId="S17" Value="1"/>
+<Cov CovItemId="S9" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="2" RootTermCovItemId="C2">
+<MapEntry BoolAssgnmnt="10" Value="4"/>
+<MapEntry BoolAssgnmnt="02" Value="2"/>
+<MapEntry BoolAssgnmnt="11" Value="5"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="1" RootTermCovItemId="C3">
+<MapEntry BoolAssgnmnt="0" Value="2"/>
+<MapEntry BoolAssgnmnt="1" Value="4"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel30">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAYAAAAG"/>
+</MetaDataListEntry>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel29">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAAAAAAF"/>
+</MetaDataListEntry>
+</MetaDataList>
+</TestCase>
+<TestCase Comment="Failure&#10;junit.framework.AssertionFailedError: null&#10;&#9;at junit.framework.Assert.fail(Assert.java:47)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:20)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:27)&#10;&#9;at at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest.dhFindBestCountMaxPriceSomeTest(DHAuffuehrungDaoJpaTest.java:79)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:597)&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)&#10;&#9;at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)&#10;&#9;at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:236)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:49)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1289569947857" Name="at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest:dhFindBestCountMaxPriceSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B5" Value="6"/>
+<Cov CovItemId="B7" Value="4"/>
+<Cov CovItemId="B8" Value="2"/>
+<Cov CovItemId="L4-2" Value="1"/>
+<Cov CovItemId="L5-2" Value="1"/>
+<Cov CovItemId="L6-0" Value="5"/>
+<Cov CovItemId="L6-1" Value="1"/>
+<Cov CovItemId="S18" Value="1"/>
+<Cov CovItemId="S19" Value="1"/>
+<Cov CovItemId="S20" Value="6"/>
+<Cov CovItemId="S21" Value="6"/>
+<Cov CovItemId="S22" Value="1"/>
+<Cov CovItemId="S23" Value="1"/>
+<Cov CovItemId="S24" Value="6"/>
+<Cov CovItemId="S25" Value="6"/>
+<Cov CovItemId="S26" Value="1"/>
+<Cov CovItemId="S27" Value="6"/>
+<Cov CovItemId="S28" Value="6"/>
+<Cov CovItemId="S29" Value="4"/>
+<Cov CovItemId="S30" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="1" RootTermCovItemId="C4">
+<MapEntry BoolAssgnmnt="1" Value="6"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="2" RootTermCovItemId="C5">
+<MapEntry BoolAssgnmnt="10" Value="4"/>
+<MapEntry BoolAssgnmnt="02" Value="2"/>
+<MapEntry BoolAssgnmnt="11" Value="1"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="1" RootTermCovItemId="C6">
+<MapEntry BoolAssgnmnt="0" Value="2"/>
+<MapEntry BoolAssgnmnt="1" Value="4"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel31">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAgAAAAI"/>
+</MetaDataListEntry>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel30">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAAAAAAG"/>
+</MetaDataListEntry>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel29">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAAAAAAF"/>
+</MetaDataListEntry>
+</MetaDataList>
+</TestCase>
+<TestCase Comment="" Date="1289569947913" Name="at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest:findCheapestSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B10" Value="5"/>
+<Cov CovItemId="B9" Value="1"/>
+<Cov CovItemId="L7-2" Value="1"/>
+<Cov CovItemId="S31" Value="1"/>
+<Cov CovItemId="S32" Value="1"/>
+<Cov CovItemId="S33" Value="1"/>
+<Cov CovItemId="S34" Value="6"/>
+<Cov CovItemId="S35" Value="1"/>
+<Cov CovItemId="S36" Value="1"/>
+<Cov CovItemId="S37" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="1" RootTermCovItemId="C7">
+<MapEntry BoolAssgnmnt="0" Value="5"/>
+<MapEntry BoolAssgnmnt="1" Value="1"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel32">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAUAAAAF"/>
+</MetaDataListEntry>
+</MetaDataList>
+</TestCase>
+<TestCase Comment="Failure&#10;junit.framework.AssertionFailedError: null&#10;&#9;at junit.framework.Assert.fail(Assert.java:47)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:20)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:27)&#10;&#9;at at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest.findCheapestCountSomeTest(DHAuffuehrungDaoJpaTest.java:115)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:597)&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)&#10;&#9;at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)&#10;&#9;at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:236)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:49)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1289569947967" Name="at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest:findCheapestCountSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B3" Value="4"/>
+<Cov CovItemId="B4" Value="2"/>
+<Cov CovItemId="L2-2" Value="1"/>
+<Cov CovItemId="L3-0" Value="5"/>
+<Cov CovItemId="L3-2" Value="1"/>
+<Cov CovItemId="S10" Value="1"/>
+<Cov CovItemId="S11" Value="6"/>
+<Cov CovItemId="S12" Value="6"/>
+<Cov CovItemId="S13" Value="5"/>
+<Cov CovItemId="S14" Value="6"/>
+<Cov CovItemId="S15" Value="6"/>
+<Cov CovItemId="S16" Value="4"/>
+<Cov CovItemId="S17" Value="1"/>
+<Cov CovItemId="S9" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="2" RootTermCovItemId="C2">
+<MapEntry BoolAssgnmnt="10" Value="4"/>
+<MapEntry BoolAssgnmnt="02" Value="2"/>
+<MapEntry BoolAssgnmnt="11" Value="5"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="1" RootTermCovItemId="C3">
+<MapEntry BoolAssgnmnt="0" Value="2"/>
+<MapEntry BoolAssgnmnt="1" Value="4"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel30">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAYAAAAG"/>
+</MetaDataListEntry>
+<MetaDataListEntry Name="StatementCoverage.getCoverage_HierarchyLevel29">
+<MetaData Base64="rO0ABXNyAC1vcmcuY29kZWNvdmVyLm1ldHJpY3MuY292ZXJhZ2UuQ292ZXJhZ2VSZXN1bHQPE7sp&#10;At1+KwIAAkkADGNvdmVyZWRJdGVtc0kACnRvdGFsSXRlbXN4cAAAAAAAAAAF"/>
+</MetaDataListEntry>
+</MetaDataList>
+</TestCase>
+<MetaDataList/>
+</TestSession>
+<TestSession Comment="" Date="1289570074442" Name="Nov 12, 2010 2:54:34 PM">
+<TestCase Comment="" Date="1289570073807" Name="at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest:dhFindBestSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B1" Value="2"/>
+<Cov CovItemId="B2" Value="4"/>
+<Cov CovItemId="L1-2" Value="1"/>
+<Cov CovItemId="S2" Value="1"/>
+<Cov CovItemId="S3" Value="1"/>
+<Cov CovItemId="S4" Value="1"/>
+<Cov CovItemId="S5" Value="6"/>
+<Cov CovItemId="S6" Value="2"/>
+<Cov CovItemId="S7" Value="1"/>
+<Cov CovItemId="S8" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="1" RootTermCovItemId="C1">
+<MapEntry BoolAssgnmnt="0" Value="4"/>
+<MapEntry BoolAssgnmnt="1" Value="2"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList/>
+</TestCase>
+<TestCase Comment="Failure&#10;junit.framework.AssertionFailedError: null&#10;&#9;at junit.framework.Assert.fail(Assert.java:47)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:20)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:27)&#10;&#9;at at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest.dhFindBestCountSomeTest(DHAuffuehrungDaoJpaTest.java:60)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:597)&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)&#10;&#9;at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)&#10;&#9;at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:236)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:49)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1289570074116" Name="at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest:dhFindBestCountSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B3" Value="4"/>
+<Cov CovItemId="B4" Value="2"/>
+<Cov CovItemId="L2-2" Value="1"/>
+<Cov CovItemId="L3-0" Value="5"/>
+<Cov CovItemId="L3-2" Value="1"/>
+<Cov CovItemId="S10" Value="1"/>
+<Cov CovItemId="S11" Value="6"/>
+<Cov CovItemId="S12" Value="6"/>
+<Cov CovItemId="S13" Value="3"/>
+<Cov CovItemId="S14" Value="6"/>
+<Cov CovItemId="S15" Value="6"/>
+<Cov CovItemId="S16" Value="4"/>
+<Cov CovItemId="S17" Value="1"/>
+<Cov CovItemId="S9" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="2" RootTermCovItemId="C2">
+<MapEntry BoolAssgnmnt="10" Value="4"/>
+<MapEntry BoolAssgnmnt="02" Value="2"/>
+<MapEntry BoolAssgnmnt="11" Value="3"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="1" RootTermCovItemId="C3">
+<MapEntry BoolAssgnmnt="0" Value="2"/>
+<MapEntry BoolAssgnmnt="1" Value="4"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList/>
+</TestCase>
+<TestCase Comment="Failure&#10;junit.framework.AssertionFailedError: null&#10;&#9;at junit.framework.Assert.fail(Assert.java:47)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:20)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:27)&#10;&#9;at at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest.dhFindBestCountMaxPriceSomeTest(DHAuffuehrungDaoJpaTest.java:79)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:597)&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)&#10;&#9;at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)&#10;&#9;at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:236)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:49)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1289570074182" Name="at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest:dhFindBestCountMaxPriceSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B5" Value="6"/>
+<Cov CovItemId="B7" Value="4"/>
+<Cov CovItemId="B8" Value="2"/>
+<Cov CovItemId="L4-2" Value="1"/>
+<Cov CovItemId="L5-2" Value="1"/>
+<Cov CovItemId="L6-0" Value="5"/>
+<Cov CovItemId="L6-2" Value="1"/>
+<Cov CovItemId="S18" Value="1"/>
+<Cov CovItemId="S19" Value="1"/>
+<Cov CovItemId="S20" Value="6"/>
+<Cov CovItemId="S21" Value="6"/>
+<Cov CovItemId="S22" Value="1"/>
+<Cov CovItemId="S23" Value="1"/>
+<Cov CovItemId="S24" Value="6"/>
+<Cov CovItemId="S25" Value="6"/>
+<Cov CovItemId="S26" Value="2"/>
+<Cov CovItemId="S27" Value="6"/>
+<Cov CovItemId="S28" Value="6"/>
+<Cov CovItemId="S29" Value="4"/>
+<Cov CovItemId="S30" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="1" RootTermCovItemId="C4">
+<MapEntry BoolAssgnmnt="1" Value="6"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="2" RootTermCovItemId="C5">
+<MapEntry BoolAssgnmnt="10" Value="4"/>
+<MapEntry BoolAssgnmnt="02" Value="2"/>
+<MapEntry BoolAssgnmnt="11" Value="2"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="1" RootTermCovItemId="C6">
+<MapEntry BoolAssgnmnt="0" Value="2"/>
+<MapEntry BoolAssgnmnt="1" Value="4"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList/>
+</TestCase>
+<TestCase Comment="" Date="1289570074242" Name="at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest:findCheapestSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B10" Value="5"/>
+<Cov CovItemId="B9" Value="1"/>
+<Cov CovItemId="L7-2" Value="1"/>
+<Cov CovItemId="S31" Value="1"/>
+<Cov CovItemId="S32" Value="1"/>
+<Cov CovItemId="S33" Value="1"/>
+<Cov CovItemId="S34" Value="6"/>
+<Cov CovItemId="S35" Value="1"/>
+<Cov CovItemId="S36" Value="1"/>
+<Cov CovItemId="S37" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="1" RootTermCovItemId="C7">
+<MapEntry BoolAssgnmnt="0" Value="5"/>
+<MapEntry BoolAssgnmnt="1" Value="1"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList/>
+</TestCase>
+<TestCase Comment="Failure&#10;junit.framework.AssertionFailedError: null&#10;&#9;at junit.framework.Assert.fail(Assert.java:47)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:20)&#10;&#9;at junit.framework.Assert.assertTrue(Assert.java:27)&#10;&#9;at at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest.findCheapestCountSomeTest(DHAuffuehrungDaoJpaTest.java:115)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:597)&#10;&#9;at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)&#10;&#9;at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)&#10;&#9;at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)&#10;&#9;at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)&#10;&#9;at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)&#10;&#9;at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)&#10;&#9;at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)&#10;&#9;at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#10;&#9;at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:236)&#10;&#9;at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:49)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)&#10;&#9;at org.codecover.juniteclipse.runner.EclipseTestRunner.main(EclipseTestRunner.java:40)" Date="1289570074310" Name="at.ticketline.dao.jpa.DHAuffuehrungDaoJpaTest:findCheapestCountSomeTest">
+<CovList>
+<CovPrefix CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<Cov CovItemId="B3" Value="4"/>
+<Cov CovItemId="B4" Value="2"/>
+<Cov CovItemId="L2-2" Value="1"/>
+<Cov CovItemId="L3-0" Value="6"/>
+<Cov CovItemId="S10" Value="1"/>
+<Cov CovItemId="S11" Value="6"/>
+<Cov CovItemId="S12" Value="6"/>
+<Cov CovItemId="S14" Value="6"/>
+<Cov CovItemId="S15" Value="6"/>
+<Cov CovItemId="S16" Value="4"/>
+<Cov CovItemId="S17" Value="1"/>
+<Cov CovItemId="S9" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpa.java">
+<AssgnmntListEntry Length="2" RootTermCovItemId="C2">
+<MapEntry BoolAssgnmnt="10" Value="5"/>
+<MapEntry BoolAssgnmnt="02" Value="1"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="1" RootTermCovItemId="C3">
+<MapEntry BoolAssgnmnt="0" Value="2"/>
+<MapEntry BoolAssgnmnt="1" Value="4"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList/>
+</TestCase>
+<MetaDataList/>
+</TestSession>
 </TestSessionContainer>
