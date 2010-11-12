@@ -47,7 +47,7 @@ public class AuffuehrungDaoJpa extends GenericDaoJpa<Auffuehrung, Integer>
 			bestList.add(p);
 
 			if (bestList.size() > count) {
-				bestList.remove(count.intValue());
+				bestList.remove(count);
 			}
 		}
 
@@ -79,7 +79,7 @@ public class AuffuehrungDaoJpa extends GenericDaoJpa<Auffuehrung, Integer>
 			bestList.add(p);
 
 			if (bestList.size() > count) {
-				bestList.remove(count.intValue());
+				bestList.remove(count);
 			}
 		}
 
@@ -116,7 +116,7 @@ public class AuffuehrungDaoJpa extends GenericDaoJpa<Auffuehrung, Integer>
 			cheapestList.add(p);
 
 			if (cheapestList.size() > count) {
-				cheapestList.remove(count.intValue());
+				cheapestList.remove(count);
 			}
 		}
 
