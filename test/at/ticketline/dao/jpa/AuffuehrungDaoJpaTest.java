@@ -49,9 +49,6 @@ import at.ticketline.entity.Veranstaltung;
 public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	IDatabaseConnection dbUnitCon = null;
 	
-
-	
-	
 	@Autowired
 	private AuffuehrungDao auffuehrungDao;
 	
@@ -86,14 +83,15 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	 * Dominik Hofer
 	 */
 	@Test
-	public void findBest2Best() {
-		loadData("dh_findBest2Best1RowTest.xml");
+	public void dhFindBestSomeTest() {
+		loadData("dh_dataset.xml");
 		
-		int[] ids = new int[] {1,2}; 
-		
-		List<Platz> result = auffuehrungDao.findBest(1);
-
-		Assert.assertTrue(resultContainsOneOf(result, ids));
+		List<Data> data = loadTestfile("dh_findBestSome");
+		for (Data d : data) {
+			List<List<Integer>> expected = d.getOutput();
+			List<Platz> result = auffuehrungDao.findBest(d.getInput().get(0));
+			Assert.assertTrue(resultIsOneOf(result, expected));
+		}
 	}
 	
 	/*
@@ -101,15 +99,16 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	 * Dominik Hofer
 	 */
 	@Test
-	public void findBest1BestCount() {
-		loadData("dh_findBest2Best1RowTest.xml");
-
-		int[] ids1 = new int[] {1,2};
-		int[] ids2 = new int[] {2,3};
+	public void dhFindBestCountSomeTest() {
+		loadData("dh_dataset.xml");
 		
-		List<Platz> result = auffuehrungDao.findBest(1,2);
-
-		Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
+		List<Data> data = loadTestfile("dh_findBestCountSome");
+		
+		for (Data d : data) {
+			List<List<Integer>> expected = d.getOutput();
+			List<Platz> result = auffuehrungDao.findBest(d.getInput().get(0),d.getInput().get(1));
+			Assert.assertTrue(resultIsOneOf(result, expected));
+		}
 	}
 
 	/*
@@ -117,15 +116,33 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	 * Dominik Hofer
 	 */
 	@Test
-	public void findBest1CountMaxPriceBest() {
-		loadData("dh_findBest2Best1RowTest.xml");
+	public void dhFindBestCountMaxPriceSomeTest() {
+		loadData("dh_dataset.xml");
 		
-		int[] ids1 = new int[] {1,2};
-		int[] ids2 = new int[] {2,3};
+		List<Data> data = loadTestfile("dh_findBestCountMaxPriceSome");
 		
-		List<Platz> result = auffuehrungDao.findBest(1,2,new BigDecimal(150));
+		for (Data d : data) {
+			List<List<Integer>> expected = d.getOutput();
+			List<Platz> result = auffuehrungDao.findBest(d.getInput().get(0),d.getInput().get(1),new BigDecimal(d.getInput().get(2)));
+			Assert.assertTrue(resultIsOneOf(result, expected));
+		}
+	}
 
-		Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
+	/*
+	 * 0626629
+	 * Dominik Hofer
+	 */
+	@Test
+	public void findCheapestSomeTest() {
+		loadData("dh_dataset.xml");
+		
+		List<Data> data = loadTestfile("dh_findCheapestSome");
+		
+		for (Data d : data) {
+			List<List<Integer>> expected = d.getOutput();
+			List<Platz> result = auffuehrungDao.findCheapest(d.getInput().get(0));
+			Assert.assertTrue(resultIsOneOf(result, expected));
+		}
 	}
 	
 	/*
@@ -133,30 +150,16 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	 * Dominik Hofer
 	 */
 	@Test
-	public void findCheapest2Cheapest() {
-		loadData("dh_findBest2Best1RowTest.xml");
+	public void findCheapestCountSomeTest() {
+		loadData("dh_dataset.xml");
 		
-		int[] ids1 = new int[] {4,5,6};
+		List<Data> data = loadTestfile("dh_findCheapestCountSome");
 		
-		List<Platz> result = auffuehrungDao.findCheapest(1);
-
-		Assert.assertTrue(resultContainsExactly(result, ids1));
-	}
-
-	/*
-	 * 0626629
-	 * Dominik Hofer
-	 */
-	@Test
-	public void findCheapest2CheapestCount() {
-		loadData("dh_findBest2Best1RowTest.xml");
-		
-		int[] ids1 = new int[] {4,5};
-		int[] ids2 = new int[] {5,6};
-		
-		List<Platz> result = auffuehrungDao.findCheapest(1,2);
-		System.out.println(result);
-		Assert.assertTrue(resultContainsExactly(result, ids1) || resultContainsExactly(result, ids2));
+		for (Data d : data) {
+			List<List<Integer>> expected = d.getOutput();
+			List<Platz> result = auffuehrungDao.findBest(d.getInput().get(0),d.getInput().get(1));
+			Assert.assertTrue(resultIsOneOf(result, expected));
+		}
 	}
 	
 	/*
@@ -165,14 +168,17 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
 	*/
 	@Test
     @Transactional
-    public void findBest1Test() {
+    public void rh_findBest1Test() {
         
         this.loadData("rh_dataset.xml");
+        List<Data> dataList = this.loadTestfile("rh_testdata");
         
-        int expectedId = 1;
         List<Platz> list = auffuehrungDao.findBest(1);
         
-        Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
+        for (Data data : dataList) {
+            Assert.assertTrue(resultIsOneOf(list, data.getOutput()));
+        }
+        
     }
 
     /*
@@ -181,36 +187,52 @@ public class AuffuehrungDaoJpaTest extends AbstractDaoTest {
     */
     @Test
     @Transactional
-    public void findBest1CountTest() {
+    public void rh_findBest1CountTest() {
         
         this.loadData("rh_dataset.xml");
-        
-        int expectedId = 1;
+        List<Data> dataList = this.loadTestfile("rh_testdata");
         int count = 1;
         
-        List<Platz> list = auffuehrungDao.findBest(2,count);
+        for (Data data:dataList) {
+            List<Platz> list = auffuehrungDao.findBest(data.getInput().get(0), count);
+            Assert.assertTrue(resultIsOneOf(list, data.getOutput()));
+            Assert.assertEquals(list.size(), count);
+        }
+    }
+    
+    /*
+     * 0726284
+     * Richard Holzeis
+    */
+    @Test
+    @Transactional
+    public void rh_findBest1CountMaxPriceBest() {
         
-        Assert.assertTrue(resultContainsExactly(list, new int[] {expectedId}));
-        Assert.assertEquals(list.size(), count);
+        this.loadData("rh_dataset.xml");
+        List<Data> dataList = this.loadTestfile("rh_testdata");
+        int count = 1;
+        
+        for (Data data:dataList) {
+            List<Platz> list = auffuehrungDao.findBest(data.getInput().get(0), count, new BigDecimal(40));
+            Assert.assertTrue(resultIsOneOf(list, data.getOutput()));
+            Assert.assertEquals(list.size(), count);
+        }
     }    
 	
-	private boolean resultContainsExactly(List<Platz> list, int[] ids) {
-		if (list.size() != ids.length) return false;
-		
-		ids : for (Integer id : ids) {
-			boolean contains = false;
-			for (Platz p : list)
-				if (p.getId().equals(id)) {
-					contains = true;
-					continue ids;
-				}
-			if (!contains) return false;
+	private boolean resultIsOneOf(List<Platz> result, List<List<Integer>> expected) {
+		ex : for (List<Integer> ex : expected) {
+			if (result.size() != ex.size()) continue;
+			ids : for (Integer id : ex) {
+				for (Platz p : result)
+					if (p.getId().equals(id)) continue ids;
+				continue ex;
+			}	
+			return true;
 		}
-		
-		return true;
+		return false;
 	}
 	
-	private boolean resultContainsOneOf(List<Platz> list, int[] ids) {
+	private boolean resultContainsOneOf(List<Platz> list, List<Integer> ids) {
 		for (Integer id : ids) {
 			for (Platz p : list)
 				if (p.getId().equals(id)) {
