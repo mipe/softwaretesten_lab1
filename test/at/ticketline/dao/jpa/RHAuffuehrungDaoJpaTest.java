@@ -28,7 +28,7 @@ public class RHAuffuehrungDaoJpaTest extends AbstractDaoTest  {
         for (Data data : dataList) {
             for (Integer in:data.getInput()) {
                 List<Platz> list = auffuehrungDao.findBest(in);
-                resultIsOneOf(list, data.getOutput());
+                flag &= resultIsOneOf(list, data.getOutput());
             }
         }
         Assert.assertTrue(flag);
@@ -43,12 +43,11 @@ public class RHAuffuehrungDaoJpaTest extends AbstractDaoTest  {
 
         this.loadData("rh_dataset.xml");
         List<Data> dataList = this.loadTestfile("rh_findBest1Count");
-        int count = 1;
         boolean flag=true;
 
         for (Data data : dataList) {
-            List<Platz> list = auffuehrungDao.findBest(data.getInput().get(0), count);
-            resultIsOneOf(list, data.getOutput());
+            List<Platz> list = auffuehrungDao.findBest(data.getInput().get(0), data.getInput().get(1));
+            flag &= resultIsOneOf(list, data.getOutput());
         }
         Assert.assertTrue(flag);
     }
@@ -62,12 +61,11 @@ public class RHAuffuehrungDaoJpaTest extends AbstractDaoTest  {
 
         this.loadData("rh_dataset.xml");
         List<Data> dataList = this.loadTestfile("rh_findBest1CountMaxPriceBest");
-        int count = 1;
         boolean flag=true;
 
         for (Data data : dataList) {
-            List<Platz> list = auffuehrungDao.findBest(data.getInput().get(0), count, new BigDecimal(data.getInput().get(1)));
-            resultIsOneOf(list, data.getOutput());
+            List<Platz> list = auffuehrungDao.findBest(data.getInput().get(0), data.getInput().get(1), new BigDecimal(data.getInput().get(2)));
+            flag &= resultIsOneOf(list, data.getOutput());
         }
         Assert.assertTrue(flag);
     }
@@ -99,11 +97,10 @@ public class RHAuffuehrungDaoJpaTest extends AbstractDaoTest  {
 
         this.loadData("rh_dataset.xml");
         List<Data> dataList = this.loadTestfile("rh_findCheapest1CountMaxPriceBest");
-        int count = 1;
         boolean flag=true;
 
         for (Data data : dataList) {
-            List<Platz> list = auffuehrungDao.findCheapest(data.getInput().get(0), count);
+            List<Platz> list = auffuehrungDao.findCheapest(data.getInput().get(0), data.getInput().get(1));
             flag &= resultIsOneOf(list, data.getOutput());
         }
         
