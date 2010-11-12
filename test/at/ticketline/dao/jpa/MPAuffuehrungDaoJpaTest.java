@@ -1,8 +1,11 @@
 package at.ticketline.dao.jpa;
 
 import java.io.FileReader;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.List;
+
+import junit.framework.Assert;
 
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
@@ -55,67 +58,99 @@ public class MPAuffuehrungDaoJpaTest extends AbstractDaoTest {
     }
 
     @Test
-    public void testFindBest() {
+    public void findBestWrongIdTest() {
         loadData("mp_dataset.xml");
 
-        int[] ids = new int[] { 1, 2 };
-
-        List<Platz> result = auffuehrungDao.findBest(2);
-        for (Platz a : result) {
-            System.out.println(a.getId());
+        Boolean hasResult = false;
+        List<Data> data = loadTestfile("mp_findBest1");
+        for (Data d : data) {
+            hasResult = true;
+            try {
+                List<Platz> result = auffuehrungDao.findBest(d.getInput().get(0));
+            } catch (Exception e) {
+                continue;
+            }
+            Assert.assertTrue(false);
         }
-        // Assert.assertTrue(resultContainsExactly(result, ids));
+        Assert.assertTrue(hasResult);
     }
 
-    // @Test
-    // public void testFindBestCount() {
-    // loadData("mp_dataset.xml");
-    //
-    // int[] ids1 = new int[] { 1, 2 };
-    // int[] ids2 = new int[] { 2, 3 };
-    //
-    // List<Platz> result = auffuehrungDao.findBest(1, 2);
-    //
-    // Assert.assertTrue(resultContainsExactly(result, ids1) ||
-    // resultContainsExactly(result, ids2));
-    // }
-    //
-    // @Test
-    // public void findBest1CountMaxPriceBest() {
-    // loadData("mp_dataset.xml");
-    //
-    // int[] ids1 = new int[] { 1, 2 };
-    // int[] ids2 = new int[] { 2, 3 };
-    //
-    // List<Platz> result = auffuehrungDao.findBest(1, 2, new BigDecimal(150));
-    //
-    // Assert.assertTrue(resultContainsExactly(result, ids1) ||
-    // resultContainsExactly(result, ids2));
-    // }
-    //
-    // @Test
-    // public void findCheapest2Cheapest() {
-    // loadData("mp_dataset.xml");
-    //
-    // int[] ids1 = new int[] { 4, 5, 6 };
-    //
-    // List<Platz> result = auffuehrungDao.findCheapest(1);
-    // System.out.println(result);
-    // Assert.assertTrue(resultContainsExactly(result, ids1));
-    // }
-    //
-    // @Test
-    // public void findCheapest2CheapestCount() {
-    // loadData("mp_dataset.xml");
-    //
-    // int[] ids1 = new int[] { 4, 5 };
-    // int[] ids2 = new int[] { 5, 6 };
-    //
-    // List<Platz> result = auffuehrungDao.findCheapest(1, 2);
-    // System.out.println(result);
-    // Assert.assertTrue(resultContainsExactly(result, ids1) ||
-    // resultContainsExactly(result, ids2));
-    // }
+    @Test
+    public void findBestCountWrongIdTest() {
+        loadData("mp_dataset.xml");
+
+        Boolean hasResult = false;
+        List<Data> data = loadTestfile("mp_findBest2");
+
+        for (Data d : data) {
+            hasResult = true;
+            try {
+                List<Platz> result = auffuehrungDao.findBest(d.getInput().get(0), d.getInput().get(1));
+            } catch (Exception e) {
+                continue;
+            }
+            Assert.assertTrue(false);
+        }
+        Assert.assertTrue(hasResult);
+    }
+
+    @Test
+    public void findBestCountMaxPriceWrongIdTest() {
+        loadData("mp_dataset.xml");
+
+        Boolean hasResult = false;
+        List<Data> data = loadTestfile("mp_findBest3");
+
+        for (Data d : data) {
+            hasResult = true;
+            try {
+                List<Platz> result = auffuehrungDao.findBest(d.getInput().get(0), d.getInput().get(1), new BigDecimal(d
+                        .getInput().get(2)));
+            } catch (Exception e) {
+                continue;
+            }
+            Assert.assertTrue(false);
+        }
+        Assert.assertTrue(hasResult);
+    }
+
+    @Test
+    public void findCheapestWrongIdTest() {
+        loadData("mp_dataset.xml");
+
+        Boolean hasResult = false;
+        List<Data> data = loadTestfile("mp_findCheapest1");
+
+        for (Data d : data) {
+            hasResult = true;
+            try {
+                List<Platz> result = auffuehrungDao.findCheapest(d.getInput().get(0));
+            } catch (Exception e) {
+                continue;
+            }
+            Assert.assertTrue(false);
+        }
+        Assert.assertTrue(hasResult);
+    }
+
+    @Test
+    public void findCheapestCountWrongIdTest() {
+        loadData("mp_dataset.xml");
+
+        Boolean hasResult = false;
+        List<Data> data = loadTestfile("mp_findCheapest2");
+
+        for (Data d : data) {
+            hasResult = true;
+            try {
+                List<Platz> result = auffuehrungDao.findCheapest(d.getInput().get(0), d.getInput().get(1));
+            } catch (Exception e) {
+                continue;
+            }
+            Assert.assertTrue(false);
+        }
+        Assert.assertTrue(hasResult);
+    }
 
     @After
     public void teardown() {
