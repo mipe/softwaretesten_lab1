@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1289565801642" TestSessionContainerId="67b39dbb-b263-4af1-8b5d-958c03dd5357" version="1.0">
+<SrcFileList>
+<SrcFile Content="package at.ticketline.dao.jpa;&#10;&#10;import java.math.BigDecimal;&#10;import java.util.List;&#10;&#10;import junit.framework.Assert;&#10;&#10;import org.junit.Test;&#10;import org.springframework.test.context.transaction.AfterTransaction;&#10;import org.springframework.test.context.transaction.BeforeTransaction;&#10;&#10;import at.ticketline.dao.AbstractDaoTest;&#10;import at.ticketline.entity.Platz;&#10;&#10;public class AuffuehrungDaoJpaTest extends AbstractDaoTest {&#10;&#10;    @BeforeTransaction&#10;    public void beforeTransaction() {&#10;        System.out.println(&quot;Before Transaction&quot;);&#10;    }&#10;&#10;    @AfterTransaction&#10;    public void afterTransaction() {&#10;        System.out.println(&quot;After Transaction&quot;);&#10;    }&#10;&#10;    /*&#10;     * 0626629 Dominik Hofer&#10;     */&#10;    @Test&#10;    public void dhFindBestSomeTest() {&#10;        loadData(&quot;dh_dataset.xml&quot;);&#10;&#10;        List&lt;Data&gt; data = loadTestfile(&quot;dh_findBestSome&quot;);&#10;        for (Data d : data) {&#10;            List&lt;List&lt;Integer&gt;&gt; expected = d.getOutput();&#10;            List&lt;Platz&gt; result = auffuehrungDao.findBest(d.getInput().get(0));&#10;            Assert.assertTrue(resultIsOneOf(result, expected));&#10;        }&#10;    }&#10;&#10;    /*&#10;     * 0626629 Dominik Hofer&#10;     */&#10;    @Test&#10;    public void dhFindBestCountSomeTest() {&#10;        loadData(&quot;dh_dataset.xml&quot;);&#10;&#10;        List&lt;Data&gt; data = loadTestfile(&quot;dh_findBestCountSome&quot;);&#10;&#10;        for (Data d : data) {&#10;            List&lt;List&lt;Integer&gt;&gt; expected = d.getOutput();&#10;            List&lt;Platz&gt; result = auffuehrungDao.findBest(d.getInput().get(0), d.getInput().get(1));&#10;            Assert.assertTrue(resultIsOneOf(result, expected));&#10;        }&#10;    }&#10;&#10;    /*&#10;     * 0626629 Dominik Hofer&#10;     */&#10;    @Test&#10;    public void dhFindBestCountMaxPriceSomeTest() {&#10;        loadData(&quot;dh_dataset.xml&quot;);&#10;&#10;        List&lt;Data&gt; data = loadTestfile(&quot;dh_findBestCountMaxPriceSome&quot;);&#10;&#10;        for (Data d : data) {&#10;            List&lt;List&lt;Integer&gt;&gt; expected = d.getOutput();&#10;            List&lt;Platz&gt; result = auffuehrungDao.findBest(d.getInput().get(0), d.getInput().get(1), new BigDecimal(d&#10;                    .getInput().get(2)));&#10;            Assert.assertTrue(resultIsOneOf(result, expected));&#10;        }&#10;    }&#10;&#10;    /*&#10;     * 0626629 Dominik Hofer&#10;     */&#10;    @Test&#10;    public void findCheapestSomeTest() {&#10;        loadData(&quot;dh_dataset.xml&quot;);&#10;&#10;        List&lt;Data&gt; data = loadTestfile(&quot;dh_findCheapestSome&quot;);&#10;&#10;        for (Data d : data) {&#10;            List&lt;List&lt;Integer&gt;&gt; expected = d.getOutput();&#10;            List&lt;Platz&gt; result = auffuehrungDao.findCheapest(d.getInput().get(0));&#10;            Assert.assertTrue(resultIsOneOf(result, expected));&#10;        }&#10;    }&#10;&#10;    /*&#10;     * 0626629 Dominik Hofer&#10;     */&#10;    @Test&#10;    public void findCheapestCountSomeTest() {&#10;        loadData(&quot;dh_dataset.xml&quot;);&#10;&#10;        List&lt;Data&gt; data = loadTestfile(&quot;dh_findCheapestCountSome&quot;);&#10;&#10;        for (Data d : data) {&#10;            List&lt;List&lt;Integer&gt;&gt; expected = d.getOutput();&#10;            List&lt;Platz&gt; result = auffuehrungDao.findBest(d.getInput().get(0), d.getInput().get(1));&#10;            Assert.assertTrue(resultIsOneOf(result, expected));&#10;        }&#10;    }&#10;&#10;}&#10;" Filename="AuffuehrungDaoJpaTest.java" Intrnl_Id="1"/>
+</SrcFileList>
+<CritList>
+<CritListEntry Name="org.codecover.model.utils.criteria.BranchCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.ConditionCoverage" PluginName="org.codecover"/>
+</CritList>
+<BoolOpList/>
+<HierarchyLvlTypeList>
+<HierarchyLvlType EnglishName="package" IntrnlName="package" Intrnl_Id="2"/>
+<HierarchyLvlType EnglishName="class" IntrnlName="class" Intrnl_Id="3"/>
+<HierarchyLvlType EnglishName="method" IntrnlName="method" Intrnl_Id="4"/>
+<HierarchyLvlType EnglishName="default package" IntrnlName="default package" Intrnl_Id="5"/>
+</HierarchyLvlTypeList>
+<MASTRoot>
+<HierarchyLvl HierarchyLvlId="13" HierarchyLvlTypeId="5" Intrnl_Id="6" Name="default package">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="12" HierarchyLvlTypeId="2" Intrnl_Id="7" Name="at">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="11" HierarchyLvlTypeId="2" Intrnl_Id="8" Name="ticketline">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="10" HierarchyLvlTypeId="2" Intrnl_Id="9" Name="dao">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="9" HierarchyLvlTypeId="2" Intrnl_Id="10" Name="jpa">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="8" HierarchyLvlTypeId="3" Intrnl_Id="11" Name="AuffuehrungDaoJpaTest">
+<Header>
+<Loc EndOffset="418" SrcFileId="1" StartOffset="360"/>
+</Header>
+<LocList>
+<Loc EndOffset="3028" SrcFileId="1" StartOffset="360"/>
+</LocList>
+<HierarchyLvl HierarchyLvlId="1" HierarchyLvlTypeId="4" Intrnl_Id="12" Name="beforeTransaction">
+<Header>
+<Loc EndOffset="480" SrcFileId="1" StartOffset="426"/>
+</Header>
+<LocList>
+<Loc EndOffset="538" SrcFileId="1" StartOffset="426"/>
+</LocList>
+<StmntSeq Intrnl_Id="13">
+<LocList>
+<Loc EndOffset="532" SrcFileId="1" StartOffset="491"/>
+</LocList>
+<BasicStmnt CovItemId="S1" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="14">
+<LocList>
+<Loc EndOffset="532" SrcFileId="1" StartOffset="491"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="2" HierarchyLvlTypeId="4" Intrnl_Id="15" Name="afterTransaction">
+<Header>
+<Loc EndOffset="596" SrcFileId="1" StartOffset="544"/>
+</Header>
+<LocList>
+<Loc EndOffset="653" SrcFileId="1" StartOffset="544"/>
+</LocList>
+<StmntSeq Intrnl_Id="16">
+<LocList>
+<Loc EndOffset="647" SrcFileId="1" StartOffset="607"/>
+</LocList>
+<BasicStmnt CovItemId="S2" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="17">
+<LocList>
+<Loc EndOffset="647" SrcFileId="1" StartOffset="607"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="3" HierarchyLvlTypeId="4" Intrnl_Id="18" Name="dhFindBestSomeTest">
+<Header>
+<Loc EndOffset="745" SrcFileId="1" StartOffset="703"/>
+</Header>
+<LocList>
+<Loc EndOffset="1090" SrcFileId="1" StartOffset="703"/>
+</LocList>
+<StmntSeq Intrnl_Id="19">
+<LocList>
+<Loc EndOffset="783" SrcFileId="1" StartOffset="756"/>
+<Loc EndOffset="843" SrcFileId="1" StartOffset="793"/>
+<Loc EndOffset="1084" SrcFileId="1" StartOffset="852"/>
+</LocList>
+<BasicStmnt CovItemId="S3" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="20">
+<LocList>
+<Loc EndOffset="783" SrcFileId="1" StartOffset="756"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S4" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="21">
+<LocList>
+<Loc EndOffset="843" SrcFileId="1" StartOffset="793"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S5" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="22" MltplExecId="L1-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" NvrExecId="L1-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" OnceExecutedId="L1-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="23">
+<LocList>
+<Loc EndOffset="931" SrcFileId="1" StartOffset="886"/>
+<Loc EndOffset="1010" SrcFileId="1" StartOffset="944"/>
+<Loc EndOffset="1074" SrcFileId="1" StartOffset="1023"/>
+</LocList>
+<BasicStmnt CovItemId="S6" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="24">
+<LocList>
+<Loc EndOffset="931" SrcFileId="1" StartOffset="886"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S7" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="25">
+<LocList>
+<Loc EndOffset="1010" SrcFileId="1" StartOffset="944"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S8" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="26">
+<LocList>
+<Loc EndOffset="1074" SrcFileId="1" StartOffset="1023"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<Keyword EndOffset="855" SrcFileId="1" StartOffset="852"/>
+<LocList>
+<Loc EndOffset="1084" SrcFileId="1" StartOffset="852"/>
+</LocList>
+</LoopStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="4" HierarchyLvlTypeId="4" Intrnl_Id="27" Name="dhFindBestCountSomeTest">
+<Header>
+<Loc EndOffset="1187" SrcFileId="1" StartOffset="1140"/>
+</Header>
+<LocList>
+<Loc EndOffset="1559" SrcFileId="1" StartOffset="1140"/>
+</LocList>
+<StmntSeq Intrnl_Id="28">
+<LocList>
+<Loc EndOffset="1225" SrcFileId="1" StartOffset="1198"/>
+<Loc EndOffset="1290" SrcFileId="1" StartOffset="1235"/>
+<Loc EndOffset="1553" SrcFileId="1" StartOffset="1300"/>
+</LocList>
+<BasicStmnt CovItemId="S9" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="29">
+<LocList>
+<Loc EndOffset="1225" SrcFileId="1" StartOffset="1198"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S10" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="30">
+<LocList>
+<Loc EndOffset="1290" SrcFileId="1" StartOffset="1235"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S11" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="31" MltplExecId="L2-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" NvrExecId="L2-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" OnceExecutedId="L2-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="32">
+<LocList>
+<Loc EndOffset="1379" SrcFileId="1" StartOffset="1334"/>
+<Loc EndOffset="1479" SrcFileId="1" StartOffset="1392"/>
+<Loc EndOffset="1543" SrcFileId="1" StartOffset="1492"/>
+</LocList>
+<BasicStmnt CovItemId="S12" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="33">
+<LocList>
+<Loc EndOffset="1379" SrcFileId="1" StartOffset="1334"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S13" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="34">
+<LocList>
+<Loc EndOffset="1479" SrcFileId="1" StartOffset="1392"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S14" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="35">
+<LocList>
+<Loc EndOffset="1543" SrcFileId="1" StartOffset="1492"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<Keyword EndOffset="1303" SrcFileId="1" StartOffset="1300"/>
+<LocList>
+<Loc EndOffset="1553" SrcFileId="1" StartOffset="1300"/>
+</LocList>
+</LoopStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="5" HierarchyLvlTypeId="4" Intrnl_Id="36" Name="dhFindBestCountMaxPriceSomeTest">
+<Header>
+<Loc EndOffset="1664" SrcFileId="1" StartOffset="1609"/>
+</Header>
+<LocList>
+<Loc EndOffset="2102" SrcFileId="1" StartOffset="1609"/>
+</LocList>
+<StmntSeq Intrnl_Id="37">
+<LocList>
+<Loc EndOffset="1702" SrcFileId="1" StartOffset="1675"/>
+<Loc EndOffset="1775" SrcFileId="1" StartOffset="1712"/>
+<Loc EndOffset="2096" SrcFileId="1" StartOffset="1785"/>
+</LocList>
+<BasicStmnt CovItemId="S15" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="38">
+<LocList>
+<Loc EndOffset="1702" SrcFileId="1" StartOffset="1675"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S16" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="39">
+<LocList>
+<Loc EndOffset="1775" SrcFileId="1" StartOffset="1712"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S17" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="40" MltplExecId="L3-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" NvrExecId="L3-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" OnceExecutedId="L3-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="41">
+<LocList>
+<Loc EndOffset="1864" SrcFileId="1" StartOffset="1819"/>
+<Loc EndOffset="2022" SrcFileId="1" StartOffset="1877"/>
+<Loc EndOffset="2086" SrcFileId="1" StartOffset="2035"/>
+</LocList>
+<BasicStmnt CovItemId="S18" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="42">
+<LocList>
+<Loc EndOffset="1864" SrcFileId="1" StartOffset="1819"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S19" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="43">
+<LocList>
+<Loc EndOffset="2022" SrcFileId="1" StartOffset="1877"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S20" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="44">
+<LocList>
+<Loc EndOffset="2086" SrcFileId="1" StartOffset="2035"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<Keyword EndOffset="1788" SrcFileId="1" StartOffset="1785"/>
+<LocList>
+<Loc EndOffset="2096" SrcFileId="1" StartOffset="1785"/>
+</LocList>
+</LoopStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="6" HierarchyLvlTypeId="4" Intrnl_Id="45" Name="findCheapestSomeTest">
+<Header>
+<Loc EndOffset="2196" SrcFileId="1" StartOffset="2152"/>
+</Header>
+<LocList>
+<Loc EndOffset="2550" SrcFileId="1" StartOffset="2152"/>
+</LocList>
+<StmntSeq Intrnl_Id="46">
+<LocList>
+<Loc EndOffset="2234" SrcFileId="1" StartOffset="2207"/>
+<Loc EndOffset="2298" SrcFileId="1" StartOffset="2244"/>
+<Loc EndOffset="2544" SrcFileId="1" StartOffset="2308"/>
+</LocList>
+<BasicStmnt CovItemId="S21" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="47">
+<LocList>
+<Loc EndOffset="2234" SrcFileId="1" StartOffset="2207"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S22" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="48">
+<LocList>
+<Loc EndOffset="2298" SrcFileId="1" StartOffset="2244"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S23" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="49" MltplExecId="L4-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" NvrExecId="L4-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" OnceExecutedId="L4-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="50">
+<LocList>
+<Loc EndOffset="2387" SrcFileId="1" StartOffset="2342"/>
+<Loc EndOffset="2470" SrcFileId="1" StartOffset="2400"/>
+<Loc EndOffset="2534" SrcFileId="1" StartOffset="2483"/>
+</LocList>
+<BasicStmnt CovItemId="S24" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="51">
+<LocList>
+<Loc EndOffset="2387" SrcFileId="1" StartOffset="2342"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S25" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="52">
+<LocList>
+<Loc EndOffset="2470" SrcFileId="1" StartOffset="2400"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S26" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="53">
+<LocList>
+<Loc EndOffset="2534" SrcFileId="1" StartOffset="2483"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<Keyword EndOffset="2311" SrcFileId="1" StartOffset="2308"/>
+<LocList>
+<Loc EndOffset="2544" SrcFileId="1" StartOffset="2308"/>
+</LocList>
+</LoopStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="7" HierarchyLvlTypeId="4" Intrnl_Id="54" Name="findCheapestCountSomeTest">
+<Header>
+<Loc EndOffset="2649" SrcFileId="1" StartOffset="2600"/>
+</Header>
+<LocList>
+<Loc EndOffset="3025" SrcFileId="1" StartOffset="2600"/>
+</LocList>
+<StmntSeq Intrnl_Id="55">
+<LocList>
+<Loc EndOffset="2687" SrcFileId="1" StartOffset="2660"/>
+<Loc EndOffset="2756" SrcFileId="1" StartOffset="2697"/>
+<Loc EndOffset="3019" SrcFileId="1" StartOffset="2766"/>
+</LocList>
+<BasicStmnt CovItemId="S27" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="56">
+<LocList>
+<Loc EndOffset="2687" SrcFileId="1" StartOffset="2660"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S28" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="57">
+<LocList>
+<Loc EndOffset="2756" SrcFileId="1" StartOffset="2697"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S29" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="58" MltplExecId="L5-2" MltplExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" NvrExecId="L5-0" NvrExecPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" OnceExecutedId="L5-1" OnceExecutedPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="59">
+<LocList>
+<Loc EndOffset="2845" SrcFileId="1" StartOffset="2800"/>
+<Loc EndOffset="2945" SrcFileId="1" StartOffset="2858"/>
+<Loc EndOffset="3009" SrcFileId="1" StartOffset="2958"/>
+</LocList>
+<BasicStmnt CovItemId="S30" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="60">
+<LocList>
+<Loc EndOffset="2845" SrcFileId="1" StartOffset="2800"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S31" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="61">
+<LocList>
+<Loc EndOffset="2945" SrcFileId="1" StartOffset="2858"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S32" CovItemPrefix="at.ticketline.dao.jpa.AuffuehrungDaoJpaTest.java" Intrnl_Id="62">
+<LocList>
+<Loc EndOffset="3009" SrcFileId="1" StartOffset="2958"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<Keyword EndOffset="2769" SrcFileId="1" StartOffset="2766"/>
+<LocList>
+<Loc EndOffset="3019" SrcFileId="1" StartOffset="2766"/>
+</LocList>
+</LoopStmnt>
+</StmntSeq>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</MASTRoot>
+</TestSessionContainer>
