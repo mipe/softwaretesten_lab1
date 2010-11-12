@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,13 @@ import javax.sql.DataSource;
 import org.dbunit.DatabaseUnitException;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
+import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.xml.XmlDataSet;
+import org.dbunit.operation.DatabaseOperation;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,6 +30,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
+import at.ticketline.dao.interfaces.AuffuehrungDao;
 import at.ticketline.dao.jpa.Data;
 import at.ticketline.entity.Platz;
 
@@ -37,6 +45,11 @@ public class AbstractDaoTest extends AbstractTransactionalJUnit4SpringContextTes
 
     @PersistenceContext
     private EntityManager entityManager;
+    
+    IDatabaseConnection dbUnitCon = null;
+
+    @Autowired
+    protected AuffuehrungDao auffuehrungDao;
 
     /**
      * Liefert die aktuelle SQL-Connection zurueck
@@ -45,6 +58,20 @@ public class AbstractDaoTest extends AbstractTransactionalJUnit4SpringContextTes
     protected Connection getSqlConnection() {
         DataSource dataSource = ((JdbcTemplate) this.simpleJdbcTemplate.getJdbcOperations()).getDataSource();
         return DataSourceUtils.getConnection(dataSource);
+    }
+
+    @Before
+    public void setup() {
+        dbUnitCon = this.getDbUnitConnection();
+    }
+
+    @After
+    public void teardown() {
+        try {
+            dbUnitCon.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -138,5 +165,16 @@ public class AbstractDaoTest extends AbstractTransactionalJUnit4SpringContextTes
             System.err.println(e.getMessage());
         }
         return data;
+    }
+
+    protected void loadData(String datasetFileName) {
+        try {
+            IDataSet dataSet = new XmlDataSet(new FileReader(datasetFileName));
+            // DatabaseOperation.INSERT.execute(dbUnitCon, dataSet);
+            DatabaseOperation.CLEAN_INSERT.execute(dbUnitCon, dataSet);
+            DatabaseOperation.REFRESH.execute(dbUnitCon, dataSet);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

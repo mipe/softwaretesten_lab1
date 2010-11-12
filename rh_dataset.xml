@@ -109,6 +109,31 @@
 		</row>
 	</table>
 
+	<table name="kategorie">
+		<column>ID</column>
+		<column>BEZEICHNUNG</column>
+		<column>PREISMIN</column>
+		<column>PREISMAX</column>
+		<column>PREISSTD</column>
+		<column>VERSION</column>
+		<row>
+			<value>1</value>
+			<value>hochklassig</value>
+			<value>100</value>
+			<value>200</value>
+			<value>150</value>
+			<value>0</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>unter der bühne</value>
+			<value>10</value>
+			<value>20</value>
+			<value>15</value>
+			<value>0</value>
+		</row>
+	</table>
+
 	<table name="auffuehrung">
 		<column>ID</column>
 		<column>DATUMUHRZEIT</column>
@@ -207,7 +232,7 @@
 			<value>1</value>
 			<value>2</value>
 			<value>1</value>
-			<value>3</value>
+			<value>2</value>
 		</row>
 	</table>
 </dataset>

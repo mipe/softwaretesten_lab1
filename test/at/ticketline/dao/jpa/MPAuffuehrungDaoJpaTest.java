@@ -14,12 +14,10 @@ import org.dbunit.operation.DatabaseOperation;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
 
 import at.ticketline.dao.AbstractDaoTest;
-import at.ticketline.dao.interfaces.AuffuehrungDao;
 import at.ticketline.entity.Platz;
 
 /*
@@ -27,9 +25,6 @@ import at.ticketline.entity.Platz;
  */
 public class MPAuffuehrungDaoJpaTest extends AbstractDaoTest {
     IDatabaseConnection dbUnitCon = null;
-
-    @Autowired
-    private AuffuehrungDao auffuehrungDao;
 
     @BeforeTransaction
     public void beforeTransaction() {
