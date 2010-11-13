@@ -12,7 +12,7 @@
 			<value>Gehoben</value>
 			<value>100</value>
 			<value>200</value>
-			<value>150</value>
+			<value>100</value>
 			<value>0</value>
 		</row>
 		<row>
@@ -21,14 +21,6 @@
 			<value>50</value>
 			<value>150</value>
 			<value>100</value>
-			<value>0</value>
-		</row>
-		<row>
-			<value>3</value>
-			<value>besser</value>
-			<value>100</value>
-			<value>150</value>
-			<value>120</value>
 			<value>0</value>
 		</row>
 	</table>
@@ -211,56 +203,6 @@
 			<value>1</value>
 			<value>1</value>
 			<value>1</value>
-		</row>
-		<row>
-			<value>2</value>
-			<value>1</value>
-			<value>1</value>
-			<value>0</value>
-			<value>1</value>
-			<value>1</value>
-			<value>1</value>
-			<value>1</value>
-		</row>
-		<row>
-			<value>3</value>
-			<value>1</value>
-			<value>2</value>
-			<value>0</value>
-			<value>1</value>
-			<value>1</value>
-			<value>1</value>
-			<value>1</value>
-		</row>
-		<row>
-			<value>4</value>
-			<value>1</value>
-			<value>3</value>
-			<value>0</value>
-			<value>1</value>
-			<value>2</value>
-			<value>1</value>
-			<value>2</value>
-		</row>
-		<row>
-			<value>5</value>
-			<value>1</value>
-			<value>1</value>
-			<value>0</value>
-			<value>1</value>
-			<value>2</value>
-			<value>1</value>
-			<value>2</value>
-		</row>
-		<row>
-			<value>6</value>
-			<value>1</value>
-			<value>2</value>
-			<value>0</value>
-			<value>1</value>
-			<value>2</value>
-			<value>1</value>
-			<value>3</value>
 		</row>
 	</table>
 </dataset>

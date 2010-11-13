@@ -106,6 +106,7 @@ public class AbstractDaoTest extends AbstractTransactionalJUnit4SpringContextTes
 
     protected boolean resultIsOneOf(List<Platz> result, List<List<Integer>> expected) {
     	if (expected.size() == 0 && result.size() == 0) return true;
+    	if (expected.size() == 0 && (result == null || result.get(0) == null)) return true;
     	
         ex: for (List<Integer> ex : expected) {
             if (result.size() != ex.size())
